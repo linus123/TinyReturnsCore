@@ -1,4 +1,7 @@
 using Dimensional.TinyReturns.Core;
+using Dimensional.TinyReturns.Core.DataRepositories;
+using Dimensional.TinyReturns.Core.PublicWebSite;
+using Dimensional.TinyReturns.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +22,12 @@ namespace TinyReturnsCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ISystemLog, SystemLogNoOp>();
+            services.AddSingleton<IInvestmentVehicleDataGateway, TinyReturnsDatabase>();
+            services.AddSingleton<IReturnsSeriesDataGateway, TinyReturnsDatabase>();
+            services.AddSingleton<IMonthlyReturnsDataGateway, TinyReturnsDatabase>();
+            services.AddSingleton<IInvestmentVehicleReturnsRepository, InvestmentVehicleReturnsRepository>();
+            services.AddTransient<PortfolioListPageAdapter>();
             services.AddSingleton<ITinyReturnsDatabaseSettings, WebSettings>();
 
             services.AddMvc();
@@ -39,7 +48,7 @@ namespace TinyReturnsCore
 
             app.UseStaticFiles();
 
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
