@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CitiFileImporterConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\Paul\\Documents\\TinyReturnsCore\\docs\\CitiFileFullGrossOfFees.csv C:\\Users\\Paul\\Documents\\TinyReturnsCore\\docs\\CitiFileFullNetOfFees.csv"
+    }
+  }
+}

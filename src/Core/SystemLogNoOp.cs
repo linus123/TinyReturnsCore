@@ -1,7 +1,6 @@
 ﻿using System;
-using Dimensional.TinyReturns.Core;
 
-namespace TinyReturnsCore.Helpers
+namespace Dimensional.TinyReturns.Core
 {
     public class SystemLogNoOp : ISystemLog
     {

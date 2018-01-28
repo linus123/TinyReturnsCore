@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Build", "Build\Build.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileIo", "FileIo\FileIo.csproj", "{98373EAC-85BA-4091-ADAA-4FAA7918A420}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitiFileImporterConsole", "CitiFileImporterConsole\CitiFileImporterConsole.csproj", "{4C88FEFE-F6C2-4A93-8989-E13FA0F9DC11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{98373EAC-85BA-4091-ADAA-4FAA7918A420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98373EAC-85BA-4091-ADAA-4FAA7918A420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98373EAC-85BA-4091-ADAA-4FAA7918A420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C88FEFE-F6C2-4A93-8989-E13FA0F9DC11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C88FEFE-F6C2-4A93-8989-E13FA0F9DC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C88FEFE-F6C2-4A93-8989-E13FA0F9DC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C88FEFE-F6C2-4A93-8989-E13FA0F9DC11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
