@@ -4,7 +4,7 @@ using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 using Xunit;
 
-namespace Dimensional.TinyReturns.IntegrationTests.Core.CitiFileImport
+namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
     public class CitiReturnSeriesImporterTests : IntegrationTestBase
     {

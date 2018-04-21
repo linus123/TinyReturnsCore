@@ -3,7 +3,7 @@ using System.Linq;
 using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
-namespace Dimensional.TinyReturns.UnitTests.Core.CitiFileImport
+namespace TinyReturns.UnitTests.Core.CitiFileImport
 {
     public class CitiFileImportInteractorTests
     {

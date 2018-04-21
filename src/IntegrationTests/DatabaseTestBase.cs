@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Text;
 using TinyReturns.Core;
 
-namespace Dimensional.TinyReturns.IntegrationTests
+namespace TinyReturns.IntegrationTests
 {
     public class DatabaseTestBase
     {

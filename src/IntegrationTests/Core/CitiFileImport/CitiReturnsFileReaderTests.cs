@@ -3,7 +3,7 @@ using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
-namespace Dimensional.TinyReturns.IntegrationTests.Core.CitiFileImport
+namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
     public class CitiReturnsFileReaderTests : IntegrationTestBase
     {

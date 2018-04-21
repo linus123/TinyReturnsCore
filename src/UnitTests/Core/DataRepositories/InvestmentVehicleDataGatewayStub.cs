@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TinyReturns.Core.DataRepositories;
 
-namespace Dimensional.TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.Core.DataRepositories
 {
     public class InvestmentVehicleDataGatewayStub : IInvestmentVehicleDataGateway
     {

@@ -2,11 +2,11 @@
 using TinyReturns.Core;
 using TinyReturns.FileIo;
 
-namespace Dimensional.TinyReturns.IntegrationTests
+namespace TinyReturns.IntegrationTests
 {
     public class IntegrationTestBase : DatabaseTestBase
     {
-        private static bool _hasInit;
+        private static bool _hasInit;S
 
         public IntegrationTestBase()
         {

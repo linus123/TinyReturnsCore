@@ -4,7 +4,7 @@ using TinyReturns.Core.DateExtend;
 using TinyReturns.Core.PerformanceReport;
 using Xunit;
 
-namespace Dimensional.TinyReturns.UnitTests.Core.PerformanceReport
+namespace TinyReturns.UnitTests.Core.PerformanceReport
 {
     public class PerformanceReportExcelReportCreatorTests
     {

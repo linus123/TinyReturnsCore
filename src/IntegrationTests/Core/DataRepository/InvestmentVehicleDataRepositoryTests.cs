@@ -2,7 +2,7 @@
 using TinyReturns.Core;
 using Xunit;
 
-namespace Dimensional.TinyReturns.IntegrationTests.Core.DataRepository
+namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
     public class InvestmentVehicleDataRepositoryTests : IntegrationTestBase
     {

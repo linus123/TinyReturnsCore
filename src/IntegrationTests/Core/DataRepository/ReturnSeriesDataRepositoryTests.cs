@@ -4,7 +4,7 @@ using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 using Xunit;
 
-namespace Dimensional.TinyReturns.IntegrationTests.Core.DataRepository
+namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
     public class ReturnSeriesDataRepositoryTests : IntegrationTestBase
     {

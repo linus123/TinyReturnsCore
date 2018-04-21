@@ -2,7 +2,7 @@
 using System.Linq;
 using TinyReturns.Core.FlatFiles;
 
-namespace Dimensional.TinyReturns.UnitTests.Core.FlatFiles
+namespace TinyReturns.UnitTests.Core.FlatFiles
 {
     public class FlatFileIoSpy : IFlatFileIo
     {

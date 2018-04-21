@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using TinyReturns.Core;
 
-namespace Dimensional.TinyReturns.IntegrationTests
+namespace TinyReturns.IntegrationTests
 {
     public class DatabaseSettings : ITinyReturnsDatabaseSettings
     {

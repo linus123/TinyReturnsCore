@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using TinyReturns.Core;
 
-namespace Dimensional.TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.Core
 {
     public class InvestmentVehicleReturnsRepositoryStub : IInvestmentVehicleReturnsRepository
     {

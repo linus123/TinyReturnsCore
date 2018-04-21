@@ -1,9 +1,8 @@
 ﻿using TinyReturns.Core;
 using TinyReturns.Core.DateExtend;
 using Xunit;
-using Xunit.Extensions;
 
-namespace Dimensional.TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.Core
 {
     public class CalculateReturnRequestFactoryTests
     {

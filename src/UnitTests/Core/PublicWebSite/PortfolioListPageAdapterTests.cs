@@ -2,7 +2,7 @@
 using TinyReturns.Core.PublicWebSite;
 using Xunit;
 
-namespace Dimensional.TinyReturns.UnitTests.Core.PublicWebSite
+namespace TinyReturns.UnitTests.Core.PublicWebSite
 {
     public class PortfolioListPageAdapterTests
     {

@@ -1,7 +1,7 @@
 ﻿using TinyReturns.Core;
 using Xunit;
 
-namespace Dimensional.TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.Core
 {
     public class FinancialMathTests
     {
