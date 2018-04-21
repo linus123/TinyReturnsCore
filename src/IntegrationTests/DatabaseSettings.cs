@@ -1,5 +1,6 @@
-﻿using System.Configuration;
+﻿using System.IO;
 using Dimensional.TinyReturns.Core;
+using Microsoft.Extensions.Configuration;
 
 namespace Dimensional.TinyReturns.IntegrationTests
 {
@@ -7,7 +8,16 @@ namespace Dimensional.TinyReturns.IntegrationTests
     {
         public string ReturnsDatabaseConnectionString
         {
-            get { return ConfigurationManager.ConnectionStrings["TinyReturnsDatabase"].ConnectionString; }
+            get
+            {
+                var configurationBuilder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json");
+
+                var configurationRoot = configurationBuilder.Build();
+
+                return configurationRoot.GetConnectionString("TinyReturnsDatabase");
+            }
         }
     }
 }

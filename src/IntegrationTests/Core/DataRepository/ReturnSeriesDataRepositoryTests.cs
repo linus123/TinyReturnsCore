@@ -6,10 +6,10 @@ using Xunit;
 
 namespace Dimensional.TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class ReturnSeriesDataRepositoryTests : DatabaseTestBase
+    public class ReturnSeriesDataRepositoryTests : IntegrationTestBase
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
-        private IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
+        private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
 
         public ReturnSeriesDataRepositoryTests()
         {

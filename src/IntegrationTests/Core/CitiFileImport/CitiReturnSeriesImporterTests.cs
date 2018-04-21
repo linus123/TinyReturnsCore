@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Dimensional.TinyReturns.IntegrationTests.Core.CitiFileImport
 {
-    public class CitiReturnSeriesImporterTests : DatabaseTestBase
+    public class CitiReturnSeriesImporterTests : IntegrationTestBase
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;

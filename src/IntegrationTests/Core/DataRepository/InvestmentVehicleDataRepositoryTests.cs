@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Dimensional.TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class InvestmentVehicleDataRepositoryTests : DatabaseTestBase
+    public class InvestmentVehicleDataRepositoryTests : IntegrationTestBase
     {
         [Fact]
         public void GetAllEntitiesShouldReturnCorrectNumberOfEntities()
