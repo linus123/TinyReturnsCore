@@ -1,8 +1,8 @@
 using System.Linq;
-using Dimensional.TinyReturns.Core.DataRepositories;
-using Dimensional.TinyReturns.Core.DateExtend;
+using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DateExtend;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public class InvestmentVehicleDataMapper
     {

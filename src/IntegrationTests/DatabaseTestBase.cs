@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Text;
-using Dimensional.TinyReturns.Core;
+using TinyReturns.Core;
 
 namespace Dimensional.TinyReturns.IntegrationTests
 {

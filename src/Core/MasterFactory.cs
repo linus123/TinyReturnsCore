@@ -1,11 +1,11 @@
-﻿using Dimensional.TinyReturns.Core.CitiFileImport;
-using Dimensional.TinyReturns.Core.DataRepositories;
-using Dimensional.TinyReturns.Core.FlatFiles;
-using Dimensional.TinyReturns.Core.OmniFileExport;
-using Dimensional.TinyReturns.Core.PerformanceReport;
-using Dimensional.TinyReturns.Core.PublicWebSite;
+﻿using TinyReturns.Core.CitiFileImport;
+using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.FlatFiles;
+using TinyReturns.Core.OmniFileExport;
+using TinyReturns.Core.PerformanceReport;
+using TinyReturns.Core.PublicWebSite;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public static class MasterFactory
     {

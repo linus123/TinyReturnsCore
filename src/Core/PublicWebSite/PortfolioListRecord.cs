@@ -1,4 +1,4 @@
-﻿namespace Dimensional.TinyReturns.Core.PublicWebSite
+﻿namespace TinyReturns.Core.PublicWebSite
 {
     public class PortfolioListRecord
     {

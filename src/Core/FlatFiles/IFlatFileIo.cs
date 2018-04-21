@@ -1,4 +1,4 @@
-﻿namespace Dimensional.TinyReturns.Core.FlatFiles
+﻿namespace TinyReturns.Core.FlatFiles
 {
     public interface IFlatFileIo
     {

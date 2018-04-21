@@ -1,11 +1,11 @@
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DataRepositories;
-using Dimensional.TinyReturns.Core.PublicWebSite;
 using Dimensional.TinyReturns.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TinyReturns.Core;
+using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.PublicWebSite;
 using TinyReturnsCore.Helpers;
 
 namespace TinyReturnsCore

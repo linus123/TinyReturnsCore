@@ -1,5 +1,5 @@
-﻿using Dimensional.TinyReturns.Core;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
+using TinyReturns.Core;
 
 namespace TinyReturnsCore.Helpers
 {

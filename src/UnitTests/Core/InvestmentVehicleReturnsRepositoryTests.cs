@@ -1,8 +1,8 @@
 ﻿using System;
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DataRepositories;
-using Dimensional.TinyReturns.Core.DateExtend;
 using Dimensional.TinyReturns.UnitTests.Core.DataRepositories;
+using TinyReturns.Core;
+using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DateExtend;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core

@@ -1,7 +1,7 @@
-﻿using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DateExtend;
-using Dimensional.TinyReturns.Core.OmniFileExport;
-using Dimensional.TinyReturns.UnitTests.Core.FlatFiles;
+﻿using Dimensional.TinyReturns.UnitTests.Core.FlatFiles;
+using TinyReturns.Core;
+using TinyReturns.Core.DateExtend;
+using TinyReturns.Core.OmniFileExport;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core.OmniFileExport

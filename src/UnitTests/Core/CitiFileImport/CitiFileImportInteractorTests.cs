@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dimensional.TinyReturns.Core.CitiFileImport;
+using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core.CitiFileImport

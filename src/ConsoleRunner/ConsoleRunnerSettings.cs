@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.Configuration;
 using TinyReturns.Core;
 
-namespace CitiFileImporterConsole
+namespace TinyReturns.ConsoleRunner
 {
-    public class CitiFileImporterConsoleSettings : ITinyReturnsDatabaseSettings
+    public class ConsoleRunnerSettings : ITinyReturnsDatabaseSettings
     {
         private readonly IConfiguration _configuration;
 
-        public CitiFileImporterConsoleSettings(
+        public ConsoleRunnerSettings(
             IConfiguration configuration)
         {
             _configuration = configuration;

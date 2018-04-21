@@ -1,4 +1,4 @@
-﻿﻿using Dimensional.TinyReturns.Core;
+﻿using TinyReturns.Core;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core

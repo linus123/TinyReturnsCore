@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public interface ISystemLog
     {

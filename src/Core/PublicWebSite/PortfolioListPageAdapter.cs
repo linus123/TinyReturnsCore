@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Dimensional.TinyReturns.Core.DateExtend;
+using TinyReturns.Core.DateExtend;
 
-namespace Dimensional.TinyReturns.Core.PublicWebSite
+namespace TinyReturns.Core.PublicWebSite
 {
     public class PortfolioListPageAdapter
     {

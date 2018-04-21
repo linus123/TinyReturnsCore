@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dimensional.TinyReturns.Core.DateExtend;
+using TinyReturns.Core.DateExtend;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public static class MonthlyReturnExtensions
     {

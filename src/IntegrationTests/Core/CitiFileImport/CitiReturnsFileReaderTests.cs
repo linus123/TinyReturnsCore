@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.CitiFileImport;
+using TinyReturns.Core;
+using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
 namespace Dimensional.TinyReturns.IntegrationTests.Core.CitiFileImport

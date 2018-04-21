@@ -1,6 +1,6 @@
-﻿using Dimensional.TinyReturns.Core.DateExtend;
+﻿using TinyReturns.Core.DateExtend;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public class CalculateReturnRequestFactory
     {

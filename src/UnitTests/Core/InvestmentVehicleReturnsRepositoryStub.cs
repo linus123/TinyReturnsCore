@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Dimensional.TinyReturns.Core;
+using TinyReturns.Core;
 
 namespace Dimensional.TinyReturns.UnitTests.Core
 {

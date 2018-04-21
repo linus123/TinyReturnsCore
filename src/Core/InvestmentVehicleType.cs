@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Headspring;
+using TinyReturns.Core.Headspring;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public class InvestmentVehicleType : Enumeration<InvestmentVehicleType>
     {

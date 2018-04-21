@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dimensional.TinyReturns.Core.DateExtend
+namespace TinyReturns.Core.DateExtend
 {
     public static class DateTimeExtensions
     {

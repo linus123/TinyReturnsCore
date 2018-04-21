@@ -2,8 +2,8 @@
 using System.Linq;
 using CsvHelper;
 using CsvHelper.Configuration;
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.CitiFileImport;
+using TinyReturns.Core;
+using TinyReturns.Core.CitiFileImport;
 
 namespace TinyReturns.FileIo
 {

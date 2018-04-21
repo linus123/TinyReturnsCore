@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using Dimensional.TinyReturns.Core;
 using Microsoft.Extensions.Configuration;
+using TinyReturns.Core;
 
 namespace Dimensional.TinyReturns.IntegrationTests
 {

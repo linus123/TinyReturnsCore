@@ -1,5 +1,5 @@
-﻿using Dimensional.TinyReturns.Core.DateExtend;
-using Dimensional.TinyReturns.Core.PublicWebSite;
+﻿using TinyReturns.Core.DateExtend;
+using TinyReturns.Core.PublicWebSite;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core.PublicWebSite

@@ -1,6 +1,6 @@
-﻿using Dimensional.TinyReturns.Core.DateExtend;
-using Dimensional.TinyReturns.Core.PublicWebSite;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using TinyReturns.Core.DateExtend;
+using TinyReturns.Core.PublicWebSite;
 
 namespace TinyReturnsCore.Controllers
 {

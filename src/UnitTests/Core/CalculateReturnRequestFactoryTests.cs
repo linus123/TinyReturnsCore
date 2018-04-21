@@ -1,5 +1,5 @@
-﻿using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DateExtend;
+﻿using TinyReturns.Core;
+using TinyReturns.Core.DateExtend;
 using Xunit;
 using Xunit.Extensions;
 

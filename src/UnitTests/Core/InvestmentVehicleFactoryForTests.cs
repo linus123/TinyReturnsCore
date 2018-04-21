@@ -1,6 +1,6 @@
 ﻿using System.Linq;
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DateExtend;
+using TinyReturns.Core;
+using TinyReturns.Core.DateExtend;
 
 namespace Dimensional.TinyReturns.UnitTests.Core
 {

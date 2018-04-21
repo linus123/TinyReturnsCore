@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Dimensional.TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataRepositories;
 
-namespace Dimensional.TinyReturns.Core
+namespace TinyReturns.Core
 {
     public interface IInvestmentVehicleReturnsRepository
     {

@@ -6,7 +6,7 @@ using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
 using TinyReturns.FileIo;
 
-namespace CitiFileImporterConsole
+namespace TinyReturns.ConsoleRunner
 {
     class Program
     {
@@ -28,7 +28,7 @@ namespace CitiFileImporterConsole
         private static CitiFileImportInteractor CreateCitiFileImportInteractor(
             IConfigurationRoot configuration)
         {
-            var citiFileImporterConsoleSettings = new CitiFileImporterConsoleSettings(configuration);
+            var citiFileImporterConsoleSettings = new ConsoleRunnerSettings(configuration);
             var systemLogNoOp = new SystemLogNoOp();
 
             var tinyReturnsDatabase = new TinyReturnsDatabase(citiFileImporterConsoleSettings, systemLogNoOp);

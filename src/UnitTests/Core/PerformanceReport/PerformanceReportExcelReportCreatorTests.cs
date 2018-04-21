@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Core.DateExtend;
-using Dimensional.TinyReturns.Core.PerformanceReport;
+using TinyReturns.Core;
+using TinyReturns.Core.DateExtend;
+using TinyReturns.Core.PerformanceReport;
 using Xunit;
 
 namespace Dimensional.TinyReturns.UnitTests.Core.PerformanceReport

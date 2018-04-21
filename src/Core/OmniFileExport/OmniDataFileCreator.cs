@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Dimensional.TinyReturns.Core.DateExtend;
-using Dimensional.TinyReturns.Core.FlatFiles;
+using TinyReturns.Core.DateExtend;
+using TinyReturns.Core.FlatFiles;
 
-namespace Dimensional.TinyReturns.Core.OmniFileExport
+namespace TinyReturns.Core.OmniFileExport
 {
     public class OmniDataFileCreator
     {

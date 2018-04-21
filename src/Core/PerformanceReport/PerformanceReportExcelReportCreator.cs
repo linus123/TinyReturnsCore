@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dimensional.TinyReturns.Core.DateExtend;
+using TinyReturns.Core.DateExtend;
 
-namespace Dimensional.TinyReturns.Core.PerformanceReport
+namespace TinyReturns.Core.PerformanceReport
 {
     public class PerformanceReportExcelReportCreator
     {

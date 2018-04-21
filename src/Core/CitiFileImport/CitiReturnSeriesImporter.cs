@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Dimensional.TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataRepositories;
 
-namespace Dimensional.TinyReturns.Core.CitiFileImport
+namespace TinyReturns.Core.CitiFileImport
 {
     public class CitiReturnSeriesImporter
     {

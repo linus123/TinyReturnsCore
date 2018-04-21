@@ -1,5 +1,5 @@
-﻿using Dimensional.TinyReturns.Core;
-using Dimensional.TinyReturns.Database;
+﻿using Dimensional.TinyReturns.Database;
+using TinyReturns.Core;
 using TinyReturns.FileIo;
 
 namespace Dimensional.TinyReturns.IntegrationTests

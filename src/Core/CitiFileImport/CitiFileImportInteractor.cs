@@ -1,4 +1,4 @@
-﻿namespace Dimensional.TinyReturns.Core.CitiFileImport
+﻿namespace TinyReturns.Core.CitiFileImport
 {
     public interface ICitiFileImportInteractor
     {

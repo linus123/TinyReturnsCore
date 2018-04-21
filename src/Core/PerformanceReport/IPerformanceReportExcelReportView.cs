@@ -1,4 +1,4 @@
-﻿namespace Dimensional.TinyReturns.Core.PerformanceReport
+﻿namespace TinyReturns.Core.PerformanceReport
 {
     public interface IPerformanceReportExcelReportView
     {
