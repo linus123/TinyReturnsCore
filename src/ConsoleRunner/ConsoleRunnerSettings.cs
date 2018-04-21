@@ -15,7 +15,10 @@ namespace TinyReturns.ConsoleRunner
 
         public string ReturnsDatabaseConnectionString
         {
-            get { return _configuration.GetConnectionString("TinyReturnsDatabase"); }
+            get
+            {
+                return _configuration.GetConnectionString("TinyReturnsDatabase");
+            }
         }
     }
 }
