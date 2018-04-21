@@ -16,7 +16,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core
         public void FromCodeShouldReturnNullWhenGivenNonMatchingCode()
         {
             var entityType = InvestmentVehicleType.FromCode('3');
-            Assert.Equal(entityType, null);
+            Assert.Null(entityType);
         }
     }
 }

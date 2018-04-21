@@ -63,7 +63,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core
 
             var results = repository.GetAllInvestmentVehicles();
 
-            Assert.Equal(results.Length, 1);
+            Assert.Single(results);
 
             var expectedEntity = new InvestmentVehicle()
             {

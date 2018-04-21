@@ -32,7 +32,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core
         [Fact]
         public void FromCodeShouldReturnNullGivenInvalidCode()
         {
-            Assert.Equal(FeeType.FromCode('X'), null);
+            Assert.Null(FeeType.FromCode('X'));
         }
     }
 }

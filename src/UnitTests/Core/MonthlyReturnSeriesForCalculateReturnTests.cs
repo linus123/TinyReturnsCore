@@ -36,7 +36,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core
 
             var returnsInRange = _returnSeries.GetReturnsInRange(new MonthYearRange(month, month));
 
-            Assert.Equal(0, returnsInRange.Length);
+            Assert.Empty(returnsInRange);
         }
 
         [Fact]

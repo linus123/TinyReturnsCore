@@ -22,7 +22,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core.PublicWebSite
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 
-            Assert.Equal(1, records.Length);
+            Assert.Single(records);
             Assert.Equal(100, records[0].PortfolioNumber);
             Assert.Equal("Portfolio100", records[0].PortfolioName);
         }
@@ -36,7 +36,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core.PublicWebSite
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 
-            Assert.Equal(1, records.Length);
+            Assert.Single(records);
 
             AssetValueIsEqual(0.1m, records[0].OneMonth);
             AssetValueIsEqual(0.716m, records[0].ThreeMonth);
@@ -52,7 +52,7 @@ namespace Dimensional.TinyReturns.UnitTests.Core.PublicWebSite
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 
-            Assert.Equal(1, records.Length);
+            Assert.Single(records);
 
             AssetResultHasError(records[0].OneMonth);
             AssetResultHasError(records[0].ThreeMonth);
