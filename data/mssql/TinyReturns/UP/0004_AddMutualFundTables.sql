@@ -9,8 +9,9 @@ GO
 CREATE SCHEMA [MutualFund] AUTHORIZATION [dbo]
 GO
 
-CREATE TABLE [MutualFund].[Events](
+CREATE TABLE [MutualFund].[Event](
 	[EventId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	[TickerSymbol] [varchar](16) NOT NULL,
 	[EventType] [varchar](16) NOT NULL,
 	[NewValue] [nvarchar](MAX) NOT NULL,
 	[EffectiveDate] [DateTime] NOT NULL,

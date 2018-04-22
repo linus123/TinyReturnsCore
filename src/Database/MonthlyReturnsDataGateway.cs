@@ -122,11 +122,11 @@ SELECT
 
         public void DeleteAllMonthlyReturns()
         {
-            const string deleteMonthlyReturnsSql = "DELETE FROM [MonthlyReturn]";
+            const string sql = "DELETE FROM [MonthlyReturn]";
 
             ConnectionExecuteWithLog(
-                connection => connection.Execute(deleteMonthlyReturnsSql),
-                deleteMonthlyReturnsSql);
+                connection => connection.Execute(sql),
+                sql);
         }
     }
 }
