@@ -9,7 +9,7 @@ namespace TinyReturns.UnitTests.Core.MutualFundManagement
         [Fact]
         public void ShouldWork()
         {
-            var eventProcessor = new EventProcessor();
+            var eventProcessor = new MutualFundEventProcessor();
 
             var mutualFund = new MutualFund("ABC");
 
