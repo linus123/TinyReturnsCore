@@ -35,6 +35,11 @@ task ResetDatabase {
 	$versionPath = "//buildInfo/version"
 
 	Exec {
+		&$roundhouseExec /s=$databaseServer /d=$databaseName /f=$databaseScriptsFolder /env=local /vf=$versionFile /vx=$versionPath /drop /silent
+	}
+
+
+	Exec {
 		&$roundhouseExec /s=$databaseServer /d=$databaseName /f=$databaseScriptsFolder /env=local /vf=$versionFile /vx=$versionPath /simple /silent
 	}
 }
