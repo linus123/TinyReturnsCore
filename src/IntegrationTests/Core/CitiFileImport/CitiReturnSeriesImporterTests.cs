@@ -7,7 +7,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
-    public class CitiReturnSeriesImporterTests : IntegrationTestBase
+    public class CitiReturnSeriesImporterTests : DatabaseTestBase
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
@@ -30,7 +30,7 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
             var series = _returnsSeriesDataGateway.GetReturnSeries(
                 new[] {100, 101, 102});
 
-            Assert.Equal(series.Length, 3);
+            Assert.Equal(3, series.Length);
 
             DeleteTestData();
         }
@@ -45,7 +45,7 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
             var series = _returnsSeriesDataGateway.GetReturnSeries(
                 new[] { 100 });
 
-            Assert.Equal(series[0].InvestmentVehicleNumber, 100);
+            Assert.Equal(100, series[0].InvestmentVehicleNumber);
             Assert.Equal(series[0].FeeTypeCode, FeeType.NetOfFees.Code);
 
             DeleteTestData();

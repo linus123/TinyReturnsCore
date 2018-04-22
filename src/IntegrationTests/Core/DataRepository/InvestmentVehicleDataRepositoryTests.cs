@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class InvestmentVehicleDataRepositoryTests : IntegrationTestBase
+    public class InvestmentVehicleDataRepositoryTests : DatabaseTestBase
     {
         [Fact]
         public void GetAllEntitiesShouldReturnCorrectNumberOfEntities()
@@ -14,7 +14,7 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
 
             var results = entityDataRepository.GetAllEntities();
 
-            Assert.Equal(results.Length, 5);
+            Assert.Equal(5, results.Length);
         }
 
         [Fact]

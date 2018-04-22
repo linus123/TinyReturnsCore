@@ -4,14 +4,14 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
-    public class CitiReturnsFileReaderTests : IntegrationTestBase
+    public class CitiReturnsFileReaderTests : DatabaseTestBase
     {
         [Fact]
         public void ShouldReadCorrectNumberOfRecordsGivenValidReturnsFile()
         {
             var results = ReadTestFile();
 
-            Assert.Equal(results.Length, 9);
+            Assert.Equal(9, results.Length);
         }
 
         [Fact]
@@ -19,9 +19,9 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
         {
             var results = ReadTestFile();
 
-            Assert.Equal(results[0].ExternalId, "100");
-            Assert.Equal(results[0].EndDate, "10/31/2013");
-            Assert.Equal(results[0].Value, "4.40055");
+            Assert.Equal("100", results[0].ExternalId);
+            Assert.Equal("10/31/2013", results[0].EndDate);
+            Assert.Equal("4.40055", results[0].Value);
         }
 
         private CitiMonthlyReturnsDataFileRecord[] ReadTestFile()

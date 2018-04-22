@@ -5,7 +5,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class ReturnSeriesDataRepositoryTests : IntegrationTestBase
+    public class ReturnSeriesDataRepositoryTests : DatabaseTestBase
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
@@ -51,14 +51,14 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
             MonthlyReturnDto[] savedMonthlyReturns,
             int returnSeriesId)
         {
-            Assert.Equal(savedMonthlyReturns.Length, 3);
+            Assert.Equal(3, savedMonthlyReturns.Length);
 
             var target = savedMonthlyReturns.FirstOrDefault(r =>
                 r.Month == 1 && r.Year == 2000 && r.ReturnSeriesId == returnSeriesId);
 
             Assert.NotNull(target);
 
-            Assert.Equal(target.ReturnValue, 0.1m);
+            Assert.Equal(0.1m, target.ReturnValue);
         }
 
         private void AssertReturnSeriesRecordIsValid(
