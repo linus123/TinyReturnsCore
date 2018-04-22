@@ -5,12 +5,12 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class ReturnSeriesDataRepositoryTests
+    public class ReturnSeriesDataGatewayTests
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
 
-        public ReturnSeriesDataRepositoryTests()
+        public ReturnSeriesDataGatewayTests()
         {
             var serviceLocator = new ServiceLocatorForIntegrationTests();
 
