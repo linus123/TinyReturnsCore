@@ -23,8 +23,9 @@ namespace TinyReturns.IntegrationTests
             _services.Add(typeof(ITinyReturnsDatabaseSettings), GetService<IntegrationTestsSettings>());
 
             _services.Add(typeof(TinyReturnsDatabase), new TinyReturnsDatabase(GetService<ITinyReturnsDatabaseSettings>(), GetService<ISystemLog>()));
+            _services.Add(typeof(ReturnsSeriesDataGateway), new ReturnsSeriesDataGateway(GetService<ITinyReturnsDatabaseSettings>(), GetService<ISystemLog>()));
 
-            _services.Add(typeof(IReturnsSeriesDataGateway), GetService<TinyReturnsDatabase>());
+            _services.Add(typeof(IReturnsSeriesDataGateway), GetService<ReturnsSeriesDataGateway>());
             _services.Add(typeof(IMonthlyReturnsDataGateway), GetService<TinyReturnsDatabase>());
             _services.Add(typeof(IInvestmentVehicleDataGateway), GetService<TinyReturnsDatabase>());
 
