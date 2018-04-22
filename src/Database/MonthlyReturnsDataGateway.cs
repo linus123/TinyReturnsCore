@@ -5,13 +5,11 @@ using TinyReturns.Core.DataRepositories;
 
 namespace TinyReturns.Database
 {
-    public class TinyReturnsDatabase :
-        BaseDatabase,
-        IMonthlyReturnsDataGateway
+    public class MonthlyReturnsDataGateway : BaseDatabase, IMonthlyReturnsDataGateway
     {
         private readonly ITinyReturnsDatabaseSettings _tinyReturnsDatabaseSettings;
 
-        public TinyReturnsDatabase(
+        public MonthlyReturnsDataGateway(
             ITinyReturnsDatabaseSettings tinyReturnsDatabaseSettings,
             ISystemLog systemLog) : base(systemLog)
         {

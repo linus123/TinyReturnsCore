@@ -25,7 +25,7 @@ namespace TinyReturnsCore
             services.AddSingleton<ISystemLog, SystemLogNoOp>();
             services.AddSingleton<IInvestmentVehicleDataGateway, InvestmentVehicleDataGateway>();
             services.AddSingleton<IReturnsSeriesDataGateway, ReturnsSeriesDataGateway>();
-            services.AddSingleton<IMonthlyReturnsDataGateway, TinyReturnsDatabase>();
+            services.AddSingleton<IMonthlyReturnsDataGateway, MonthlyReturnsDataGateway>();
             services.AddSingleton<IInvestmentVehicleReturnsRepository, InvestmentVehicleReturnsRepository>();
             services.AddTransient<PortfolioListPageAdapter>();
             services.AddSingleton<ITinyReturnsDatabaseSettings, WebSettings>();

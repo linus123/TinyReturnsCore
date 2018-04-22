@@ -24,11 +24,11 @@ namespace TinyReturns.ConsoleRunner
             _services.Add(typeof(ISystemLog), GetService<SystemLogNoOp>());
             _services.Add(typeof(ITinyReturnsDatabaseSettings), GetService<ConsoleRunnerSettings>());
 
-            _services.Add(typeof(TinyReturnsDatabase), new TinyReturnsDatabase(GetService<ITinyReturnsDatabaseSettings>(), GetService<ISystemLog>()));
+            _services.Add(typeof(MonthlyReturnsDataGateway), new MonthlyReturnsDataGateway(GetService<ITinyReturnsDatabaseSettings>(), GetService<ISystemLog>()));
             _services.Add(typeof(ReturnsSeriesDataGateway), new ReturnsSeriesDataGateway(GetService<ITinyReturnsDatabaseSettings>(), GetService<ISystemLog>()));
 
             _services.Add(typeof(IReturnsSeriesDataGateway), GetService<ReturnsSeriesDataGateway>());
-            _services.Add(typeof(IMonthlyReturnsDataGateway), GetService<TinyReturnsDatabase>());
+            _services.Add(typeof(IMonthlyReturnsDataGateway), GetService<MonthlyReturnsDataGateway>());
 
             _services.Add(typeof(CitiReturnsFileReader), new CitiReturnsFileReader(GetService<ISystemLog>()));
 
