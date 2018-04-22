@@ -13,7 +13,8 @@ CREATE TABLE [MutualFund].[Events](
 	[EventId] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	[EventType] [varchar](16) NOT NULL,
 	[NewValue] [nvarchar](MAX) NOT NULL,
-	[EffectiveDate] [DateTime] NOT NULL
+	[EffectiveDate] [DateTime] NOT NULL,
+	[DateCreated] [DateTime] NOT NULL,
 ) ON [PRIMARY]
 
 GO

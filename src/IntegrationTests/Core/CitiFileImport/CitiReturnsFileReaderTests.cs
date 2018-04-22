@@ -28,7 +28,10 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
         private CitiMonthlyReturnsDataFileRecord[] ReadTestFile()
         {
             var file = GetNetReturnsTestFilePath();
-            var reader = MasterFactory.GetCitiReturnsFileReader();
+
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            var reader = serviceLocator.GetService<ICitiReturnsFileReader>();
+
             var results = reader.ReadFile(file);
             return results;
         }

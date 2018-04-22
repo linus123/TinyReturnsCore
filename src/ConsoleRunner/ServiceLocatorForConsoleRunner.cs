@@ -9,13 +9,11 @@ using TinyReturns.FileIo;
 
 namespace TinyReturns.ConsoleRunner
 {
-    public class ServiceLocator
+    public class ServiceLocatorForConsoleRunner
     {
-        // map that contains pairs of interfaces and
-        // references to concrete implementations
         private readonly IDictionary<object, object> _services;
 
-        internal ServiceLocator(
+        internal ServiceLocatorForConsoleRunner(
             IConfigurationRoot configuration)
         {
             _services = new Dictionary<object, object>();

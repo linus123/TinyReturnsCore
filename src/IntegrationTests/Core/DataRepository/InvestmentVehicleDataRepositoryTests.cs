@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using TinyReturns.Core;
+using TinyReturns.Core.DataRepositories;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository
@@ -9,7 +10,8 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
         [Fact]
         public void GetAllEntitiesShouldReturnCorrectNumberOfEntities()
         {
-            var entityDataRepository = MasterFactory.GetInvestmentVehicleDataRepository();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            var entityDataRepository = serviceLocator.GetService<IInvestmentVehicleDataGateway>();
 
             var results = entityDataRepository.GetAllEntities();
 
@@ -19,7 +21,8 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
         [Fact]
         public void GetAllEntitiesShouldReturnMapAllColumnsToProperties()
         {
-            var entityDataRepository = MasterFactory.GetInvestmentVehicleDataRepository();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            var entityDataRepository = serviceLocator.GetService<IInvestmentVehicleDataGateway>();
 
             var results = entityDataRepository.GetAllEntities();
 
@@ -27,8 +30,8 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
 
             Assert.NotNull(target);
 
-            Assert.Equal(target.InvestmentVehicleTypeCode, 'P');
-            Assert.Equal(target.Name, "Portfolio 100 - Large");
+            Assert.Equal('P', target.InvestmentVehicleTypeCode);
+            Assert.Equal("Portfolio 100 - Large", target.Name);
         }
     }
 }

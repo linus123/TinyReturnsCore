@@ -12,7 +12,7 @@ namespace TinyReturns.IntegrationTests
         {
             if (!_hasInit)
             {
-                var tinyReturnsDatabaseSettings = new DatabaseSettings();
+                var tinyReturnsDatabaseSettings = new IntegrationTestsSettings();
                 var systemLogNoOp = new SystemLogNoOp();
 
                 var monthlyReturnsDataGateway = new TinyReturnsDatabase(tinyReturnsDatabaseSettings, systemLogNoOp);

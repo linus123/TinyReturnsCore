@@ -14,7 +14,7 @@ namespace TinyReturns.ConsoleRunner
 
             IConfigurationRoot configuration = builder.Build();
 
-            var serviceLocator = new ServiceLocator(configuration);
+            var serviceLocator = new ServiceLocatorForConsoleRunner(configuration);
 
             var citiFileImportInteractor = serviceLocator.GetService<CitiFileImportInteractor>();
 

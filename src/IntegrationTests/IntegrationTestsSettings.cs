@@ -4,7 +4,7 @@ using TinyReturns.Core;
 
 namespace TinyReturns.IntegrationTests
 {
-    public class DatabaseSettings : ITinyReturnsDatabaseSettings
+    public class IntegrationTestsSettings : ITinyReturnsDatabaseSettings
     {
         public string ReturnsDatabaseConnectionString
         {
