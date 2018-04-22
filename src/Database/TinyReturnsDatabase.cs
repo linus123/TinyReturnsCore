@@ -3,7 +3,7 @@ using Dapper;
 using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 
-namespace Dimensional.TinyReturns.Database
+namespace TinyReturns.Database
 {
     public class TinyReturnsDatabase :
         BaseDatabase,

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dimensional.TinyReturns.Database;
 using Microsoft.Extensions.Configuration;
 using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
 using TinyReturns.Core.DataRepositories;
+using TinyReturns.Database;
 using TinyReturns.FileIo;
 
 namespace TinyReturns.ConsoleRunner

@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Text;
 using TinyReturns.Core;
 
-namespace Dimensional.TinyReturns.Database
+namespace TinyReturns.Database
 {
     public abstract class BaseDatabase
     {
