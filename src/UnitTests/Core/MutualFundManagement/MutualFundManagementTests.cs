@@ -13,7 +13,7 @@ namespace TinyReturns.UnitTests.Core.MutualFundManagement
 
             var mutualFund = new MutualFund("ABC");
 
-            var nameChangeEvent = new NameChangeEvent(
+            var nameChangeEvent = new MutualFundNameChangeEvent(
                 new DateTime(2010, 1, 1),
                 "My Super Fund",
                 mutualFund);
