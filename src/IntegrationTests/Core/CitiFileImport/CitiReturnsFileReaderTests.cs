@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
 using Xunit;
 

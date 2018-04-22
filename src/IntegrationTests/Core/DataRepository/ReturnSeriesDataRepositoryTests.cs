@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 using Xunit;
 
@@ -13,8 +12,10 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
 
         public ReturnSeriesDataRepositoryTests()
         {
-            _returnsSeriesDataGateway = MasterFactory.GetReturnsSeriesRepository();
-            _monthlyReturnsDataGateway = MasterFactory.GetMonthlyReturnsDataRepository();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+
+            _returnsSeriesDataGateway = serviceLocator.GetService<IReturnsSeriesDataGateway>();
+            _monthlyReturnsDataGateway = serviceLocator.GetService<IMonthlyReturnsDataGateway>();
         }
 
         [Fact]

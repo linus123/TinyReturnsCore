@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using TinyReturns.Core;
+using TinyReturns.Core.CitiFileImport;
 using TinyReturns.Core.DataRepositories;
 using Xunit;
 
@@ -59,7 +60,7 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 
             var monthlyReturns = GetMonthlyReturnSeries(100);
 
-            Assert.Equal(monthlyReturns.Length, 9);
+            Assert.Equal(9, monthlyReturns.Length);
 
             DeleteTestData();
         }
@@ -76,7 +77,7 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
             var target = monthlyReturns.FirstOrDefault(r => r.Month == 10 && r.Year == 2013);
 
             Assert.NotNull(target);
-            Assert.Equal(target.ReturnValue, 0.0440055m);
+            Assert.Equal(0.0440055m, target.ReturnValue);
 
             DeleteTestData();
         }
@@ -90,14 +91,16 @@ namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 
         private void ImportTestFile(string filePath)
         {
-            var importer = MasterFactory.GetCitiReturnSeriesImporter();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            var importer = serviceLocator.GetService<CitiReturnSeriesImporter>();
 
             importer.ImportMonthlyReturnsFile(filePath);
         }
 
         private void DeleteTestData()
         {
-            var importer = MasterFactory.GetCitiReturnSeriesImporter();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            var importer = serviceLocator.GetService<CitiReturnSeriesImporter>();
 
             importer.DeleteAllReturns();
         }
