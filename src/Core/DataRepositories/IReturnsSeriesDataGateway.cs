@@ -4,7 +4,7 @@ namespace TinyReturns.Core.DataRepositories
     {
         int InsertReturnSeries(ReturnSeriesDto returnSeries);
 
-        ReturnSeriesDto GetReturnSeries(int returnSeriesId);
+        IMaybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId);
 
         void DeleteReturnSeries(int returnSeriesId);
 

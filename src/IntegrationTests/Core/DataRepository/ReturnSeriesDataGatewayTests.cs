@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 using Xunit;
 
@@ -62,14 +63,14 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
         }
 
         private void AssertReturnSeriesRecordIsValid(
-            ReturnSeriesDto savedReturnSeries,
+            IMaybe<ReturnSeriesDto> savedReturnSeries,
             ReturnSeriesDto expectedReturnSeries)
         {
-            Assert.NotNull(savedReturnSeries);
+            Assert.True(savedReturnSeries.HasValue);
 
-            Assert.Equal(savedReturnSeries.ReturnSeriesId, expectedReturnSeries.ReturnSeriesId);
-            Assert.Equal(savedReturnSeries.InvestmentVehicleNumber, expectedReturnSeries.InvestmentVehicleNumber);
-            Assert.Equal(savedReturnSeries.FeeTypeCode, expectedReturnSeries.FeeTypeCode);
+            Assert.Equal(savedReturnSeries.Value.ReturnSeriesId, expectedReturnSeries.ReturnSeriesId);
+            Assert.Equal(savedReturnSeries.Value.InvestmentVehicleNumber, expectedReturnSeries.InvestmentVehicleNumber);
+            Assert.Equal(savedReturnSeries.Value.FeeTypeCode, expectedReturnSeries.FeeTypeCode);
         }
 
         private static MonthlyReturnDto[] CreateTestMonthlyReturns(

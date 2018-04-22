@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TinyReturns.Core;
 using TinyReturns.Core.DataRepositories;
 
 namespace TinyReturns.UnitTests.Core.DataRepositories
@@ -23,10 +24,15 @@ namespace TinyReturns.UnitTests.Core.DataRepositories
             return _index;
         }
 
-        public ReturnSeriesDto GetReturnSeries(int returnSeriesId)
+        public IMaybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId)
         {
-            return _returnSeriesDtos
+            var returnSeriesDto = _returnSeriesDtos
                 .FirstOrDefault(dto => dto.ReturnSeriesId == returnSeriesId);
+
+            if (returnSeriesDto == null)
+                return new MaybeNoValue<ReturnSeriesDto>();
+
+            return new MaybeValue<ReturnSeriesDto>(returnSeriesDto);
         }
 
         public void DeleteReturnSeries(int returnSeriesId)
