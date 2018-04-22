@@ -5,23 +5,24 @@ using TinyReturns.Core;
 
 namespace TinyReturns.IntegrationTests
 {
-    public class DatabaseTestBase
+    public sealed class SqlDatabaseHelper
     {
-        protected ISystemLog SystemLog;
+        private readonly ISystemLog _systemLog;
 
-        public DatabaseTestBase()
+        public SqlDatabaseHelper()
         {
-            SystemLog = MasterFactory.GetSystemLog();
+            var serviceLocator = new ServiceLocatorForIntegrationTests();
+            _systemLog = serviceLocator.GetService<ISystemLog>();
         }
 
-        protected void ConnectionExecuteWithLog(
+        public void ConnectionExecuteWithLog(
             string connectionString,
             Action<SqlConnection> connectionAction,
             string logSql)
         {
             using (var sqlConnection = new SqlConnection(connectionString))
             {
-                SystemLog.Info("Executing: " + logSql);
+                _systemLog.Info("Executing: " + logSql);
 
                 sqlConnection.Open();
                 connectionAction(sqlConnection);
@@ -29,7 +30,7 @@ namespace TinyReturns.IntegrationTests
             }
         }
 
-        protected void ConnectionExecuteWithLog(
+        public void ConnectionExecuteWithLog(
             string connectionString,
             Action<SqlConnection> connectionAction,
             string logSql,
@@ -53,7 +54,7 @@ namespace TinyReturns.IntegrationTests
                     stringBuilder.AppendLine(value.ToString());
             }
 
-            SystemLog.Info(stringBuilder.ToString());
+            _systemLog.Info(stringBuilder.ToString());
 
             using (var sqlConnection = new SqlConnection(connectionString))
             {

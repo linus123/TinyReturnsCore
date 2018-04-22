@@ -7,7 +7,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
-    public class CitiReturnSeriesImporterTests : DatabaseTestBase
+    public class CitiReturnSeriesImporterTests
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;

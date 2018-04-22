@@ -4,7 +4,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.CitiFileImport
 {
-    public class CitiReturnsFileReaderTests : DatabaseTestBase
+    public class CitiReturnsFileReaderTests
     {
         [Fact]
         public void ShouldReadCorrectNumberOfRecordsGivenValidReturnsFile()

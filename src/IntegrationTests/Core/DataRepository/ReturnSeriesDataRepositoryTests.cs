@@ -5,7 +5,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository
 {
-    public class ReturnSeriesDataRepositoryTests : DatabaseTestBase
+    public class ReturnSeriesDataRepositoryTests
     {
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
