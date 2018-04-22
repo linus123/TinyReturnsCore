@@ -5,6 +5,7 @@ using Xunit;
 
 namespace TinyReturns.UnitTests.Core.CitiFileImport
 {
+    //TODO: Modify these tests wo NOT use inheritcance
     public class CitiFileImportInteractorTests
     {
         private readonly CitiReturnSeriesImporterSpy _citiReturnSeriesImporterSpy;

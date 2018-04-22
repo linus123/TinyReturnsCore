@@ -6,7 +6,7 @@ namespace TinyReturns.IntegrationTests
 {
     public class IntegrationTestBase : DatabaseTestBase
     {
-        private static bool _hasInit;S
+        private static bool _hasInit;
 
         public IntegrationTestBase()
         {
