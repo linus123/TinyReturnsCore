@@ -7,8 +7,7 @@ namespace TinyReturns.Database
 {
     public class TinyReturnsDatabase :
         BaseDatabase,
-        IMonthlyReturnsDataGateway,
-        IInvestmentVehicleDataGateway
+        IMonthlyReturnsDataGateway
     {
         private readonly ITinyReturnsDatabaseSettings _tinyReturnsDatabaseSettings;
 
@@ -130,28 +129,6 @@ SELECT
             ConnectionExecuteWithLog(
                 connection => connection.Execute(deleteMonthlyReturnsSql),
                 deleteMonthlyReturnsSql);
-        }
-
-        public InvestmentVehicleDto[] GetAllEntities()
-        {
-            const string sql = @"
-SELECT
-        [InvestmentVehicleNumber]
-        ,[Name]
-        ,[InvestmentVehicleTypeCode]
-    FROM
-        [InvestmentVehicle]";
-
-            InvestmentVehicleDto[] result = null;
-
-            ConnectionExecuteWithLog(
-                connection =>
-                {
-                    result = connection.Query<InvestmentVehicleDto>(sql).ToArray();
-                },
-                sql);
-
-            return result;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace TinyReturnsCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<ISystemLog, SystemLogNoOp>();
-            services.AddSingleton<IInvestmentVehicleDataGateway, TinyReturnsDatabase>();
+            services.AddSingleton<IInvestmentVehicleDataGateway, InvestmentVehicleDataGateway>();
             services.AddSingleton<IReturnsSeriesDataGateway, ReturnsSeriesDataGateway>();
             services.AddSingleton<IMonthlyReturnsDataGateway, TinyReturnsDatabase>();
             services.AddSingleton<IInvestmentVehicleReturnsRepository, InvestmentVehicleReturnsRepository>();
