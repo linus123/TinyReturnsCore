@@ -5,6 +5,8 @@
         MutualFundEvenDto[] GetAllForTickerSymbol(
             string tickerSymbol);
 
+        void Insert(MutualFundEvenDto[] dto);
+
         void DeleteAll();
     }
 }

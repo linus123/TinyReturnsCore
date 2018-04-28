@@ -2,13 +2,13 @@
 {
     public class MutualFund
     {
-        private string _tickerSymbol;
-
         public MutualFund(
             string tickerSymbol)
         {
-            _tickerSymbol = tickerSymbol;
+            TickerSymbol = tickerSymbol;
         }
+
+        public string TickerSymbol { get; }
 
         public string Name { get; set; }
     }

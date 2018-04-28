@@ -28,6 +28,7 @@ namespace TinyReturns.Database
             const string sql = @"
 SELECT
         [EventId]
+        ,[TickerSymbol]
         ,[EventType]
         ,[NewValue]
         ,[EffectiveDate]
@@ -35,7 +36,7 @@ SELECT
     FROM
         [MutualFund].[Event] AS Event
     WHERE
-        ReturnSeriesId = @ReturnSeriesId";
+        TickerSymbol = @TickerSymbol";
 
             MutualFundEvenDto[] result = null;
 
@@ -50,6 +51,32 @@ SELECT
                 paramObject);
 
             return result;
+        }
+
+        public void Insert(MutualFundEvenDto[] dto)
+        {
+            const string sql = @"
+INSERT INTO [MutualFund].[Event]
+           ([TickerSymbol]
+           ,[EventType]
+           ,[NewValue]
+           ,[EffectiveDate]
+           ,[DateCreated])
+     VALUES
+           (@TickerSymbol
+           ,@EventType
+           ,@NewValue
+           ,@EffectiveDate
+           ,@DateCreated)
+";
+
+            ConnectionExecuteWithLog(
+                connection =>
+                {
+                    connection.Execute(sql, dto);
+                },
+                sql,
+                dto);
         }
 
         public void DeleteAll()
