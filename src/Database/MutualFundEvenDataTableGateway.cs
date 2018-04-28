@@ -22,7 +22,7 @@ namespace TinyReturns.Database
             get { return _tinyReturnsDatabaseSettings.ReturnsDatabaseConnectionString; }
         }
 
-        public MutualFundEvenDto[] GetAllForTickerSymbol(
+        public MutualFundEvenDto[] GetForTickerSymbol(
             string tickerSymbol)
         {
             const string sql = @"

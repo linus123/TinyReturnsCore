@@ -2,7 +2,7 @@
 {
     public interface IMutualFundEvenDataTableGateway
     {
-        MutualFundEvenDto[] GetAllForTickerSymbol(
+        MutualFundEvenDto[] GetForTickerSymbol(
             string tickerSymbol);
 
         void Insert(MutualFundEvenDto[] dto);

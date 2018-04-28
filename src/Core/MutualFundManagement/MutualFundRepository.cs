@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
@@ -15,19 +16,39 @@ namespace TinyReturns.Core.MutualFundManagement
         public IMaybe<MutualFund> GetByTickerSymbol(
             string tickerSymbol)
         {
-            var events = _mutualFundEvenDataTableGateway
-                .GetAllForTickerSymbol(tickerSymbol)
-                .OrderBy(e => e.EffectiveDate)
-                .ToArray();
+            var eventDtos = _mutualFundEvenDataTableGateway
+                .GetForTickerSymbol(tickerSymbol)
+                .OrderBy(e => e.EffectiveDate);
 
-            if (events.Any(e => e.EventType == "Create"))
+            MutualFund mutualFund = null;
+
+            var mutualFundEventProcessor = new MutualFundEventProcessor();
+
+            foreach (var mutualFundEvenDto in eventDtos)
             {
-                var mutualFund = new MutualFund(tickerSymbol);
+                if (mutualFundEvenDto.EventType == "Create")
+                {
+                    mutualFund = new MutualFund(mutualFundEvenDto.TickerSymbol);
+                }
 
-                return new MaybeValue<MutualFund>(mutualFund);
+                if (mutualFund != null)
+                {
+                    if (mutualFundEvenDto.EventType == "NameChange")
+                    {
+                        var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
+                            mutualFundEvenDto.EffectiveDate,
+                            mutualFundEvenDto.NewValue,
+                            mutualFund);
+
+                        mutualFundEventProcessor.Process(mutualFundNameChangeEvent);
+                    }
+                }
             }
 
-            return new MaybeNoValue<MutualFund>();
+            if (mutualFund == null)
+                return new MaybeNoValue<MutualFund>();
+
+            return new MaybeValue<MutualFund>(mutualFund);
         }
     }
 }
