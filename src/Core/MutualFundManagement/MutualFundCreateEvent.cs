@@ -4,6 +4,8 @@ namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFundCreateEvent : MutualFundDomainEvent
     {
+        public const string EventType = "Create";
+
         public MutualFundCreateEvent(
             DateTime effectiveDate,
             string tickerSymbol) : base(effectiveDate, tickerSymbol)
@@ -16,7 +18,7 @@ namespace TinyReturns.Core.MutualFundManagement
 
         public override string GetEventType()
         {
-            return "Create";
+            return EventType;
         }
     }
 }

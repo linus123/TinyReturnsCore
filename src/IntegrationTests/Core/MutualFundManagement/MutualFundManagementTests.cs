@@ -76,7 +76,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             {
                 TickerSymbol = tickerSymbol,
                 EventType = "Create",
-                NewValue = string.Empty,
+                NewValue = tickerSymbol,
                 EffectiveDate = new DateTime(2010, 1, 1),
                 DateCreated = new DateTime(2012, 1, 1)
             };

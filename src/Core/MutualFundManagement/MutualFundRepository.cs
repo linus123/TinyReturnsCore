@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
@@ -26,14 +25,14 @@ namespace TinyReturns.Core.MutualFundManagement
 
             foreach (var mutualFundEvenDto in eventDtos)
             {
-                if (mutualFundEvenDto.EventType == "Create")
+                if (mutualFundEvenDto.EventType == MutualFundCreateEvent.EventType)
                 {
                     mutualFund = new MutualFund(mutualFundEvenDto.TickerSymbol);
                 }
 
                 if (mutualFund != null)
                 {
-                    if (mutualFundEvenDto.EventType == "NameChange")
+                    if (mutualFundEvenDto.EventType == MutualFundNameChangeEvent.EventType)
                     {
                         var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
                             mutualFundEvenDto.EffectiveDate,

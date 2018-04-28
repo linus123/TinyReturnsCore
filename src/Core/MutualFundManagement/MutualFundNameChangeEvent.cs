@@ -7,6 +7,8 @@ namespace TinyReturns.Core.MutualFundManagement
         private readonly string _newNameValue;
         private readonly MutualFund _mutualFund;
 
+        public const string EventType = "NameChange";
+
         public MutualFundNameChangeEvent(
             DateTime effectiveDate,
             string newNameValue,
@@ -23,7 +25,7 @@ namespace TinyReturns.Core.MutualFundManagement
 
         public override string GetEventType()
         {
-            return "NameChange";
+            return EventType;
         }
     }
 }
