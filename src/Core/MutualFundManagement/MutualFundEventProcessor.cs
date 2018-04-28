@@ -6,17 +6,16 @@ namespace TinyReturns.Core.MutualFundManagement
     {
         private readonly List<DomainEvent> _domainEvents;
 
-        public MutualFundEventProcessor(
-            IMutualFundEvenDataTableGateway mutualFundEvenDataTableGateway)
+        public MutualFundEventProcessor()
         {
             _domainEvents = new List<DomainEvent>();
         }
 
-        public void Process(DomainEvent @event)
+        public void Process(DomainEvent domainEvent)
         {
-            @event.Process();
+            domainEvent.Process();
 
-            _domainEvents.Add(@event);
+            _domainEvents.Add(domainEvent);
         }
     }
 }
