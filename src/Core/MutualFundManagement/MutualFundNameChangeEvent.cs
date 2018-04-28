@@ -2,25 +2,28 @@
 
 namespace TinyReturns.Core.MutualFundManagement
 {
-    public class MutualFundNameChangeEvent : DomainEvent
+    public class MutualFundNameChangeEvent : MutualFundDomainEvent
     {
-        private readonly DateTime _effectiveDate;
         private readonly string _newNameValue;
         private readonly MutualFund _mutualFund;
 
         public MutualFundNameChangeEvent(
             DateTime effectiveDate,
             string newNameValue,
-            MutualFund mutualFund) : base(effectiveDate)
+            MutualFund mutualFund) : base(effectiveDate, mutualFund.TickerSymbol)
         {
             _mutualFund = mutualFund;
             _newNameValue = newNameValue;
-            _effectiveDate = effectiveDate;
         }
 
         public override void Process()
         {
             _mutualFund.Name = _newNameValue;
+        }
+
+        public override string GetEventType()
+        {
+            return "NameChange";
         }
     }
 }

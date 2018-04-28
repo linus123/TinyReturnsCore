@@ -45,7 +45,12 @@ namespace TinyReturns.IntegrationTests.Core
             var mutualFundEventProcessor = new MutualFundEventProcessor();
 
             mutualFundEventProcessor.Process(mutualFundCreateEvent);
-            mutualFundEventProcessor.Persist();
+
+            var mutualFundDomainEventRepository = new MutualFundDomainEventRepository(
+                mutualFundEvenDataTableGateway,
+                new ClockStub(new DateTime(2010, 1, 1)));
+
+            mutualFundDomainEventRepository.SaveEvents(mutualFundEventProcessor.GetDomainEvents());
 
             var mutualFundRepository = new MutualFundRepository(
                 mutualFundEvenDataTableGateway);
