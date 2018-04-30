@@ -36,7 +36,7 @@ namespace TinyReturns.Core.MutualFundManagement
                     {
                         var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
                             mutualFundEvenDto.EffectiveDate,
-                            mutualFundEvenDto.NewValue,
+                            mutualFundEvenDto.JsonPayload,
                             mutualFund);
 
                         mutualFundEventProcessor.Process(mutualFundNameChangeEvent);

@@ -4,17 +4,21 @@ namespace TinyReturns.Core.MutualFundManagement
 {
     public abstract class MutualFundDomainEvent
     {
-
         protected MutualFundDomainEvent(
             DateTime effectiveDate,
-            string tickerSymbol)
+            MutualFund mutualFund)
         {
-            TickerSymbol = tickerSymbol;
+            MutualFund = mutualFund;
             EffectiveDate = effectiveDate;
         }
 
-        public string TickerSymbol { get; }
+        protected MutualFund MutualFund { get; }
         public DateTime EffectiveDate { get; }
+
+        public string TickerSymbol
+        {
+            get { return MutualFund.TickerSymbol; }
+        }
 
         public abstract void Process();
         public abstract string GetEventType();

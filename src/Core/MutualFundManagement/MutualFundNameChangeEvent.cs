@@ -12,7 +12,7 @@ namespace TinyReturns.Core.MutualFundManagement
         public MutualFundNameChangeEvent(
             DateTime effectiveDate,
             string newNameValue,
-            MutualFund mutualFund) : base(effectiveDate, mutualFund.TickerSymbol)
+            MutualFund mutualFund) : base(effectiveDate, mutualFund)
         {
             _mutualFund = mutualFund;
             _newNameValue = newNameValue;

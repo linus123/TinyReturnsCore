@@ -30,7 +30,7 @@ SELECT
         [EventId]
         ,[TickerSymbol]
         ,[EventType]
-        ,[NewValue]
+        ,[JsonPayload]
         ,[EffectiveDate]
         ,[DateCreated]
     FROM
@@ -59,13 +59,13 @@ SELECT
 INSERT INTO [MutualFund].[Event]
            ([TickerSymbol]
            ,[EventType]
-           ,[NewValue]
+           ,[JsonPayload]
            ,[EffectiveDate]
            ,[DateCreated])
      VALUES
            (@TickerSymbol
            ,@EventType
-           ,@NewValue
+           ,@JsonPayload
            ,@EffectiveDate
            ,@DateCreated)
 ";
