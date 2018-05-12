@@ -2,7 +2,7 @@
 {
     public class MutualFund
     {
-        private readonly CurrencyCode _currencyCode;
+        private CurrencyCode _currencyCode;
 
         public MutualFund(
             string tickerSymbol,
@@ -21,6 +21,12 @@
         public string CurrencyCodeAsString
         {
             get { return _currencyCode.Code; }
+        }
+
+        public void SetCurrencyCode(
+            CurrencyCode currencyCode)
+        {
+            _currencyCode = currencyCode;
         }
 
     }
