@@ -63,13 +63,12 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             testHelper.DeleteData(() =>
             {
                 var tickerSymbol = "ABC";
+                var fundName = "My Mutual Fund";
+                var stringCurrency = "USD";
 
-                var jObject = new JObject();
-
-                jObject.Add("name", "My Mutual Fund");
-                jObject.Add("currencyCode", "USD");
-
-                var jsonPayLoad = jObject.ToString();
+                var jsonPayLoad = GetCreateJsonPayLoad(
+                    fundName,
+                    stringCurrency);
 
                 var mutualFundEvenDto = new MutualFundEvenDto()
                 {
@@ -103,13 +102,12 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             testHelper.DeleteData(() =>
             {
                 var tickerSymbol = "ABC";
+                var fundName = "Original Fund Name";
+                var stringCurrency = "USD";
 
-                var jObject = new JObject();
-
-                jObject.Add("name", "Original Fund Name");
-                jObject.Add("currencyCode", "USD");
-
-                var jsonPayLoad = jObject.ToString();
+                var jsonPayLoad = GetCreateJsonPayLoad(
+                    fundName,
+                    stringCurrency);
 
                 var mutualFundEvenDto1 = new MutualFundEvenDto()
                 {
@@ -142,6 +140,19 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 Assert.Equal("My New Fund", mutualFundResult.Value.Name);
 
             });
+        }
+
+        private static string GetCreateJsonPayLoad(
+            string fundName,
+            string stringCurrency)
+        {
+            var jObject = new JObject();
+
+            jObject.Add("name", fundName);
+            jObject.Add("currencyCode", stringCurrency);
+
+            var jsonPayLoad = jObject.ToString();
+            return jsonPayLoad;
         }
     }
 }

@@ -25,7 +25,7 @@ namespace TinyReturns.Core.MutualFundManagement
         }
 
         private readonly string _fundName;
-        private CurrencyCode _currencyCode;
+        private readonly CurrencyCode _currencyCode;
 
         public const string EventType = "Create";
 
