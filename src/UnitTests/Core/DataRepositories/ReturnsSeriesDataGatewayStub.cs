@@ -24,15 +24,15 @@ namespace TinyReturns.UnitTests.Core.DataRepositories
             return _index;
         }
 
-        public IMaybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId)
+        public Maybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId)
         {
             var returnSeriesDto = _returnSeriesDtos
                 .FirstOrDefault(dto => dto.ReturnSeriesId == returnSeriesId);
 
             if (returnSeriesDto == null)
-                return new MaybeNoValue<ReturnSeriesDto>();
+                return Maybe<ReturnSeriesDto>.None;
 
-            return new MaybeValue<ReturnSeriesDto>(returnSeriesDto);
+            return Maybe<ReturnSeriesDto>.Some(returnSeriesDto);
         }
 
         public void DeleteReturnSeries(int returnSeriesId)

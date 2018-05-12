@@ -1,51 +1,45 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TinyReturns.Core
 {
-    public interface IMaybe<T>
+    public struct Maybe<T>
     {
-        T Value { get; }
-        bool HasValue { get; }
-    }
+        readonly IEnumerable<T> values;
 
-    public class MaybeValue<T> : IMaybe<T>
-    {
-        public MaybeValue(T value)
+        public static Maybe<T> Some(T value)
         {
-            Value = value;
+            if (value == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            return new Maybe<T>(new[] { value });
         }
 
-        public T Value { get; }
+        public static Maybe<T> None => new Maybe<T>(new T[0]);
 
-        public bool HasValue
+        private Maybe(IEnumerable<T> values)
         {
-            get { return true; }
+            this.values = values;
         }
-    }
 
-    public class MaybeNoValue<T> : IMaybe<T>
-    {
+        public bool HasValue => values != null && values.Any();
+
+        public bool DoesNotHaveValue => !HasValue;
+
         public T Value
         {
             get
             {
-                throw new Exception("No value set.");
+                if (!HasValue)
+                {
+                    throw new InvalidOperationException("Maybe does not have a value");
+                }
+
+                return values.Single();
             }
-
-        }
-
-        public bool HasValue
-        {
-            get { return false; }
-        }
-    }
-
-    public static class MaybeExtensions
-    {
-        public static bool HasNoValue<T>(
-            this IMaybe<T> m)
-        {
-            return !m.HasValue;
         }
     }
 }

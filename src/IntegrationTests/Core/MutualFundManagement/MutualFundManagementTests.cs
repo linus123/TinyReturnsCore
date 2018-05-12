@@ -1,5 +1,4 @@
 ﻿using System;
-using TinyReturns.Core;
 using TinyReturns.Core.MutualFundManagement;
 using Xunit;
 
@@ -22,7 +21,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             var mutualFundResult = mutualFundRepository.GetByTickerSymbol("ABC");
 
             Assert.False(mutualFundResult.HasValue);
-            Assert.True(mutualFundResult.HasNoValue());
+            Assert.True(mutualFundResult.DoesNotHaveValue);
 
             mutualFundEvenDataTableGateway.DeleteAll();
         }
@@ -55,7 +54,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             var mutualFundResult = mutualFundRepository.GetByTickerSymbol(tickerSymbol);
 
             Assert.True(mutualFundResult.HasValue);
-            Assert.False(mutualFundResult.HasNoValue());
+            Assert.False(mutualFundResult.DoesNotHaveValue);
             Assert.Equal(tickerSymbol, mutualFundResult.Value.TickerSymbol);
 
             mutualFundEvenDataTableGateway.DeleteAll();
@@ -98,7 +97,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             var mutualFundResult = mutualFundRepository.GetByTickerSymbol(tickerSymbol);
 
             Assert.True(mutualFundResult.HasValue);
-            Assert.False(mutualFundResult.HasNoValue());
+            Assert.False(mutualFundResult.DoesNotHaveValue);
             Assert.Equal(tickerSymbol, mutualFundResult.Value.TickerSymbol);
             Assert.Equal("My New Fund", mutualFundResult.Value.Name);
 

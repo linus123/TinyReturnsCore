@@ -47,7 +47,7 @@ SELECT CAST(SCOPE_IDENTITY() as int)
             return newId;
         }
 
-        public IMaybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId)
+        public Maybe<ReturnSeriesDto> GetReturnSeries(int returnSeriesId)
         {
             const string sql = @"
 SELECT
@@ -71,9 +71,9 @@ SELECT
                 sql);
 
             if (result == null)
-                return new MaybeNoValue<ReturnSeriesDto>();
+                return Maybe<ReturnSeriesDto>.None;
 
-            return new MaybeValue<ReturnSeriesDto>(result);
+            return Maybe<ReturnSeriesDto>.Some(result);
         }
 
         public ReturnSeriesDto[] GetReturnSeries(int[] entityNumbers)

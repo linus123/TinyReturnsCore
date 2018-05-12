@@ -63,7 +63,7 @@ namespace TinyReturns.IntegrationTests.Core.DataRepository
         }
 
         private void AssertReturnSeriesRecordIsValid(
-            IMaybe<ReturnSeriesDto> savedReturnSeries,
+            Maybe<ReturnSeriesDto> savedReturnSeries,
             ReturnSeriesDto expectedReturnSeries)
         {
             Assert.True(savedReturnSeries.HasValue);

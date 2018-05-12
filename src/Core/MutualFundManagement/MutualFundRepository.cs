@@ -12,7 +12,7 @@ namespace TinyReturns.Core.MutualFundManagement
             _mutualFundEvenDataTableGateway = mutualFundEvenDataTableGateway;
         }
 
-        public IMaybe<MutualFund> GetByTickerSymbol(
+        public Maybe<MutualFund> GetByTickerSymbol(
             string tickerSymbol)
         {
             var eventDtos = _mutualFundEvenDataTableGateway
@@ -45,9 +45,9 @@ namespace TinyReturns.Core.MutualFundManagement
             }
 
             if (mutualFund == null)
-                return new MaybeNoValue<MutualFund>();
+                return Maybe<MutualFund>.None;
 
-            return new MaybeValue<MutualFund>(mutualFund);
+            return Maybe<MutualFund>.Some(mutualFund);
         }
     }
 }
