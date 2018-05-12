@@ -21,7 +21,7 @@ namespace TinyReturns.Core.MutualFundManagement
         public string EventName => "Create";
         public int Priority => 100;
 
-        public IMutualFundDomainEvent CreateEvent(
+        public IMutualFundDomainEvent CreateEventFromJson(
             DateTime effectiveDate,
             string tickerSymbol,
             string json,
@@ -35,9 +35,24 @@ namespace TinyReturns.Core.MutualFundManagement
             var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
 
             return new DomainEvent(
+                this,
                 effectiveDate,
                 tickerSymbol,
                 nameToken.ToString(),
+                currencyCode);
+        }
+
+        public IMutualFundDomainEvent CreateEvent(
+            DateTime effectiveDate,
+            string tickerSymbol,
+            string name,
+            CurrencyCode currencyCode)
+        {
+            return new DomainEvent(
+                this,
+                effectiveDate,
+                tickerSymbol,
+                name,
                 currencyCode);
         }
 
@@ -46,14 +61,16 @@ namespace TinyReturns.Core.MutualFundManagement
             private readonly string _fundName;
             private readonly CurrencyCode _currencyCode;
 
-            public const int PriorityConts = 100;
+            private readonly MutualFundEventTypeForCreate _eventType;
 
             public DomainEvent(
+                MutualFundEventTypeForCreate eventType,
                 DateTime effectiveDate,
                 string tickerSymbol,
                 string fundName,
                 CurrencyCode currencyCode)
             {
+                _eventType = eventType;
                 _currencyCode = currencyCode;
                 EffectiveDate = effectiveDate;
                 TickerSymbol = tickerSymbol;
@@ -61,8 +78,10 @@ namespace TinyReturns.Core.MutualFundManagement
             }
 
             public DateTime EffectiveDate { get; }
-
             public string TickerSymbol { get; }
+
+            public string EventType => _eventType.EventName;
+            public int Priority => _eventType.Priority;
 
             public MutualFund Process()
             {
@@ -70,16 +89,6 @@ namespace TinyReturns.Core.MutualFundManagement
                     TickerSymbol,
                     _fundName,
                     _currencyCode);
-            }
-
-            public string EventType
-            {
-                get { return "Create"; }
-            }
-
-            public int Priority
-            {
-                get { return PriorityConts; }
             }
 
             public string GetJsonPayload()
@@ -99,7 +108,7 @@ namespace TinyReturns.Core.MutualFundManagement
         public string EventName => "NameChange";
         public int Priority => 500;
 
-        public IMutualFundDomainEvent CreateEvent(
+        public IMutualFundDomainEvent CreateEventFromJson(
             DateTime effectiveDate,
             string tickerSymbol,
             string json,
@@ -110,8 +119,21 @@ namespace TinyReturns.Core.MutualFundManagement
             var nameToken = jObject.SelectToken("name");
 
             return new DomainEvent(
+                this,
                 effectiveDate,
                 nameToken.ToString(),
+                mutualFund);
+        }
+
+        public IMutualFundDomainEvent CreateEvent(
+            DateTime effectiveDate,
+            string newName,
+            MutualFund mutualFund)
+        {
+            return new DomainEvent(
+                this,
+                effectiveDate,
+                newName,
                 mutualFund);
         }
 
@@ -120,13 +142,15 @@ namespace TinyReturns.Core.MutualFundManagement
             private readonly string _newNameValue;
             private readonly MutualFund _mutualFund;
 
-            public const int PriorityConts = 500;
+            private readonly MutualFundEventTypeForNameChange _eventType;
 
             public DomainEvent(
+                MutualFundEventTypeForNameChange eventType,
                 DateTime effectiveDate,
                 string newNameValue,
                 MutualFund mutualFund)
             {
+                _eventType = eventType;
                 EffectiveDate = effectiveDate;
                 _mutualFund = mutualFund;
                 _newNameValue = newNameValue;
@@ -134,25 +158,14 @@ namespace TinyReturns.Core.MutualFundManagement
 
             public DateTime EffectiveDate { get; }
 
-            public string TickerSymbol
-            {
-                get { return _mutualFund.TickerSymbol; }
-            }
+            public string TickerSymbol => _mutualFund.TickerSymbol;
+            public string EventType => _eventType.EventName;
+            public int Priority => _eventType.Priority;
 
             public MutualFund Process()
             {
                 _mutualFund.Name = _newNameValue;
                 return _mutualFund;
-            }
-
-            public string EventType
-            {
-                get { return "NameChange"; }
-            }
-
-            public int Priority
-            {
-                get { return PriorityConts; }
             }
 
             public string GetJsonPayload()
@@ -172,7 +185,7 @@ namespace TinyReturns.Core.MutualFundManagement
         public string EventName => "CurrencyChange";
         public int Priority => 500;
 
-        public IMutualFundDomainEvent CreateEvent(
+        public IMutualFundDomainEvent CreateEventFromJson(
             DateTime effectiveDate,
             string tickerSymbol,
             string json,
@@ -185,49 +198,53 @@ namespace TinyReturns.Core.MutualFundManagement
             var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
 
             return new DomainEvent(
+                this,
                 effectiveDate,
                 currencyCode,
                 mutualFund);
         }
 
+        public IMutualFundDomainEvent CreateEvent(
+            DateTime effectiveDate,
+            CurrencyCode currencyCode,
+            MutualFund mutualFund)
+        {
+            return new DomainEvent(
+                this,
+                effectiveDate,
+                currencyCode,
+                mutualFund);
+        }
+
+
         public class DomainEvent : IMutualFundDomainEvent
         {
             private readonly MutualFund _mutualFund;
             private readonly CurrencyCode _currencyCode;
-
-            public const int PriorityConts = 500;
+            private readonly MutualFundEventTypeForCurrencyChange _eventType;
 
             public DomainEvent(
+                MutualFundEventTypeForCurrencyChange eventType,
                 DateTime effectiveDate,
                 CurrencyCode currencyCode,
                 MutualFund mutualFund)
             {
+                _eventType = eventType;
                 _currencyCode = currencyCode;
                 EffectiveDate = effectiveDate;
                 _mutualFund = mutualFund;
             }
             public DateTime EffectiveDate { get; }
 
-            public string TickerSymbol
-            {
-                get { return _mutualFund.TickerSymbol; }
-            }
+            public string TickerSymbol => _mutualFund.TickerSymbol;
+            public string EventType => _eventType.EventName;
+            public int Priority => _eventType.Priority;
 
             public MutualFund Process()
             {
                 _mutualFund.SetCurrencyCode(_currencyCode);
 
                 return _mutualFund;
-            }
-
-            public string EventType
-            {
-                get { return "CurrencyChange"; }
-            }
-
-            public int Priority
-            {
-                get { return PriorityConts; }
             }
 
             public string GetJsonPayload()

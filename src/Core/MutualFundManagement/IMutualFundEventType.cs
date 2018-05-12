@@ -7,7 +7,7 @@ namespace TinyReturns.Core.MutualFundManagement
         string EventName { get; }
         int Priority { get; }
 
-        IMutualFundDomainEvent CreateEvent(
+        IMutualFundDomainEvent CreateEventFromJson(
             DateTime effectiveDate,
             string tickerSymbol,
             string jsonPayload,

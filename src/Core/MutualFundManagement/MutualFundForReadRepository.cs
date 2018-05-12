@@ -28,7 +28,7 @@ namespace TinyReturns.Core.MutualFundManagement
             {
                 var mutualFundEventType = mutualFundEventTypes.First(t => t.EventName == mutualFundEvenDto.EventType);
 
-                var mutualFundDomainEvent = mutualFundEventType.CreateEvent(
+                var mutualFundDomainEvent = mutualFundEventType.CreateEventFromJson(
                     mutualFundEvenDto.EffectiveDate,
                     mutualFundEvenDto.TickerSymbol,
                     mutualFundEvenDto.JsonPayload,
