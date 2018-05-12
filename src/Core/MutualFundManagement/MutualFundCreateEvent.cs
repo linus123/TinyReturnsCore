@@ -75,5 +75,15 @@ namespace TinyReturns.Core.MutualFundManagement
         {
             get { return PriorityConts; }
         }
+
+        public string GetJsonPayload()
+        {
+            var jObject = new JObject();
+
+            jObject.Add("name", _fundName);
+            jObject.Add("currencyCode", _currencyCode.Code);
+
+            return jObject.ToString();
+        }
     }
 }

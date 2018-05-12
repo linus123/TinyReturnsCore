@@ -27,7 +27,7 @@ namespace TinyReturns.Core.MutualFundManagement
                     EventType = fundDomainEvent.GetEventType(),
                     EffectiveDate = fundDomainEvent.EffectiveDate,
                     TickerSymbol = fundDomainEvent.TickerSymbol,
-                    JsonPayload = string.Empty,
+                    JsonPayload = fundDomainEvent.GetJsonPayload(),
                     DateCreated = _clock.GetCurrentDateTime()
                 };
 

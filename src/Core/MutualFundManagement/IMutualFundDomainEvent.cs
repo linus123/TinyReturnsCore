@@ -9,5 +9,6 @@ namespace TinyReturns.Core.MutualFundManagement
         MutualFund Process();
         string GetEventType();
         int Priority { get; }
+        string GetJsonPayload();
     }
 }

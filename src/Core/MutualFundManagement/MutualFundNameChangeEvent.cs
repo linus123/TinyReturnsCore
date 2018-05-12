@@ -69,5 +69,9 @@ namespace TinyReturns.Core.MutualFundManagement
             get { return PriorityConts; }
         }
 
+        public string GetJsonPayload()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

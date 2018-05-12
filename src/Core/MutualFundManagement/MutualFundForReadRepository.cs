@@ -2,11 +2,11 @@
 
 namespace TinyReturns.Core.MutualFundManagement
 {
-    public class MutualFundRepository
+    public class MutualFundForReadRepository
     {
         private readonly IMutualFundEvenDataTableGateway _mutualFundEvenDataTableGateway;
 
-        public MutualFundRepository(
+        public MutualFundForReadRepository(
             IMutualFundEvenDataTableGateway mutualFundEvenDataTableGateway)
         {
             _mutualFundEvenDataTableGateway = mutualFundEvenDataTableGateway;

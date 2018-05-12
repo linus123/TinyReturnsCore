@@ -9,12 +9,17 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
         public class TestHelper
         {
             private readonly IMutualFundEvenDataTableGateway _mutualFundEvenDataTableGateway;
+            private MutualFundDomainEventRepository _mutualFundDomainEventRepository;
 
             public TestHelper()
             {
                 var serviceLocator = new ServiceLocatorForIntegrationTests();
 
                 _mutualFundEvenDataTableGateway = serviceLocator.GetService<IMutualFundEvenDataTableGateway>();
+
+                _mutualFundDomainEventRepository = new MutualFundDomainEventRepository(
+                    _mutualFundEvenDataTableGateway,
+                    new ClockStub(new DateTime(2010, 1, 1)));
             }
 
             public void DeleteData(
@@ -31,9 +36,15 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 _mutualFundEvenDataTableGateway.Insert(new []{ dto });
             }
 
-            public MutualFundRepository CreateRepository()
+            public void InsertMutualFundDomainEvent(
+                IMutualFundDomainEvent e)
             {
-                return new MutualFundRepository(
+                _mutualFundDomainEventRepository.SaveEvents(new []{ e });
+            }
+
+            public MutualFundForReadRepository CreateRepository()
+            {
+                return new MutualFundForReadRepository(
                     _mutualFundEvenDataTableGateway);
             }
         }
@@ -65,17 +76,13 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "My Mutual Fund";
                 var currencyCode = "USD";
 
-                var mutualFundEvenDto = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = "Create",
-                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
-                    Priority = MutualFundCreateEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 1),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                    new DateTime(2010, 1, 1),
+                    tickerSymbol,
+                    fundName,
+                    new CurrencyCode(currencyCode));
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto);
+                testHelper.InsertMutualFundDomainEvent(mutualFundCreateEvent);
 
                 var mutualFundRepository = testHelper.CreateRepository();
 
