@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Newtonsoft.Json.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
@@ -22,15 +21,16 @@ namespace TinyReturns.Core.MutualFundManagement
 
             MutualFund mutualFund = null;
 
-            var mutualFundEventProcessor = new MutualFundEventProcessor();
-
             foreach (var mutualFundEvenDto in eventDtos)
             {
                 if (mutualFundEvenDto.EventType == MutualFundCreateEvent.EventType)
                 {
-                    mutualFund = CreateMutualFund(
+                    var createEvent = MutualFundCreateEvent.CreateFromJson(
+                        mutualFundEvenDto.EffectiveDate,
                         mutualFundEvenDto.TickerSymbol,
                         mutualFundEvenDto.JsonPayload);
+
+                    mutualFund = createEvent.Process();
                 }
 
                 if (mutualFund != null)
@@ -42,7 +42,7 @@ namespace TinyReturns.Core.MutualFundManagement
                             mutualFundEvenDto.JsonPayload,
                             mutualFund);
 
-                        mutualFundEventProcessor.Process(mutualFundNameChangeEvent);
+                        mutualFund = mutualFundNameChangeEvent.Process();
                     }
                 }
             }
@@ -51,23 +51,6 @@ namespace TinyReturns.Core.MutualFundManagement
                 return Maybe<MutualFund>.None;
 
             return Maybe<MutualFund>.Some(mutualFund);
-        }
-
-        private static MutualFund CreateMutualFund(
-            string tickerSymbol,
-            string jsonPayload)
-        {
-            var jObject = JObject.Parse(jsonPayload);
-
-            var nameToken = jObject.SelectToken("name");
-            var currencyCodeToken = jObject.SelectToken("currencyCode");
-
-            var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
-
-            return new MutualFund(
-                tickerSymbol,
-                nameToken.ToString(),
-                currencyCode);
         }
     }
 }

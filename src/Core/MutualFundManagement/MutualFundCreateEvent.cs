@@ -1,9 +1,29 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFundCreateEvent : IMutualFundDomainEvent
     {
+        public static MutualFundCreateEvent CreateFromJson(
+            DateTime effectiveDate,
+            string tickerSymbol,
+            string json)
+        {
+            var jObject = JObject.Parse(json);
+
+            var nameToken = jObject.SelectToken("name");
+            var currencyCodeToken = jObject.SelectToken("currencyCode");
+
+            var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
+
+            return new MutualFundCreateEvent(
+                effectiveDate,
+                tickerSymbol,
+                nameToken.ToString(),
+                currencyCode);
+        }
+
         private readonly string _fundName;
         private CurrencyCode _currencyCode;
 
