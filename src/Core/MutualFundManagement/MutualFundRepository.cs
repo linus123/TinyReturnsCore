@@ -47,12 +47,12 @@ namespace TinyReturns.Core.MutualFundManagement
 
                     if (mutualFundEvenDto.EventType == MutualFundCurrencyChangeEvent.EventType)
                     {
-                        var mutualFundNameChangeEvent = MutualFundCurrencyChangeEvent.CreateFromJson(
+                        var mutualFundCurrencyChangeEvent = MutualFundCurrencyChangeEvent.CreateFromJson(
                             mutualFundEvenDto.EffectiveDate,
                             mutualFundEvenDto.JsonPayload,
                             mutualFund);
 
-                        mutualFund = mutualFundNameChangeEvent.Process();
+                        mutualFund = mutualFundCurrencyChangeEvent.Process();
                     }
 
                 }
