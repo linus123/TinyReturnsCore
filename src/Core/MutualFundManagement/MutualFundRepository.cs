@@ -18,43 +18,23 @@ namespace TinyReturns.Core.MutualFundManagement
             var eventDtos = _mutualFundEvenDataTableGateway
                 .GetForTickerSymbol(tickerSymbol);
 
+            var mutualFundEventTypeFactory = new MutualFundEventTypeFactory();
+
+            var mutualFundEventTypes = mutualFundEventTypeFactory.GetEventTypes();
+
             MutualFund mutualFund = null;
 
             foreach (var mutualFundEvenDto in eventDtos)
             {
-                if (mutualFundEvenDto.EventType == MutualFundCreateEvent.EventType)
-                {
-                    var createEvent = MutualFundCreateEvent.CreateFromJson(
-                        mutualFundEvenDto.EffectiveDate,
-                        mutualFundEvenDto.TickerSymbol,
-                        mutualFundEvenDto.JsonPayload);
+                var mutualFundEventType = mutualFundEventTypes.First(t => t.EventName == mutualFundEvenDto.EventType);
 
-                    mutualFund = createEvent.Process();
-                }
+                var mutualFundDomainEvent = mutualFundEventType.CreateEvent(
+                    mutualFundEvenDto.EffectiveDate,
+                    mutualFundEvenDto.TickerSymbol,
+                    mutualFundEvenDto.JsonPayload,
+                    mutualFund);
 
-                if (mutualFund != null)
-                {
-                    if (mutualFundEvenDto.EventType == MutualFundNameChangeEvent.EventType)
-                    {
-                        var mutualFundNameChangeEvent = MutualFundNameChangeEvent.CreateFromJson(
-                            mutualFundEvenDto.EffectiveDate,
-                            mutualFundEvenDto.JsonPayload,
-                            mutualFund);
-
-                        mutualFund = mutualFundNameChangeEvent.Process();
-                    }
-
-                    if (mutualFundEvenDto.EventType == MutualFundCurrencyChangeEvent.EventType)
-                    {
-                        var mutualFundCurrencyChangeEvent = MutualFundCurrencyChangeEvent.CreateFromJson(
-                            mutualFundEvenDto.EffectiveDate,
-                            mutualFundEvenDto.JsonPayload,
-                            mutualFund);
-
-                        mutualFund = mutualFundCurrencyChangeEvent.Process();
-                    }
-
-                }
+                mutualFund = mutualFundDomainEvent.Process();
             }
 
             if (mutualFund == null)
