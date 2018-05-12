@@ -9,7 +9,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
         public class TestHelper
         {
             private readonly IMutualFundEvenDataTableGateway _mutualFundEvenDataTableGateway;
-            private MutualFundDomainEventRepository _mutualFundDomainEventRepository;
+            private readonly MutualFundDomainEventRepository _mutualFundDomainEventRepository;
 
             public TestHelper()
             {
@@ -28,12 +28,6 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 _mutualFundEvenDataTableGateway.DeleteAll();
                 act();
                 _mutualFundEvenDataTableGateway.DeleteAll();
-            }
-
-            public void InsertMutualFundEvenDto(
-                MutualFundEvenDto dto)
-            {
-                _mutualFundEvenDataTableGateway.Insert(new []{ dto });
             }
 
             public void InsertMutualFundDomainEvent(
@@ -186,29 +180,22 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundEvenDto1 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundNameChangeEvent.EventType,
-                    JsonPayload = MutualFundNameChangeEvent.CreateJsonPayload("My New Fund"),
-                    Priority = MutualFundNameChangeEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 1),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                    new DateTime(2010, 1, 1),
+                    tickerSymbol,
+                    fundName,
+                    new CurrencyCode(currencyCode));
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto1);
+                var mutualFund = mutualFundCreateEvent.Process();
 
-                var mutualFundEvenDto2 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundCreateEvent.EventType,
-                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
-                    Priority = MutualFundCreateEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 1),
-                    DateCreated = new DateTime(2012, 1, 2)
-                };
+                var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
+                    new DateTime(2010, 1, 2),
+                    "My New Fund",
+                    mutualFund);
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto2);
+                // Insert name change first
+                testHelper.InsertMutualFundDomainEvent(mutualFundNameChangeEvent);
+                testHelper.InsertMutualFundDomainEvent(mutualFundCreateEvent);
 
                 var mutualFundRepository = testHelper.CreateRepository();
 
@@ -218,7 +205,6 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 Assert.False(mutualFundResult.DoesNotHaveValue);
                 Assert.Equal(tickerSymbol, mutualFundResult.Value.TickerSymbol);
                 Assert.Equal("My New Fund", mutualFundResult.Value.Name);
-
             });
         }
 
