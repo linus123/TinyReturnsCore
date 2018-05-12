@@ -151,7 +151,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
                 var mutualFund = mutualFundCreateEvent.Process();
 
-                var mutualFundCurrencyChangeEvent = new MutualFundEventTypeForCurrencyChange.MutualFundCurrencyChangeEvent(
+                var mutualFundCurrencyChangeEvent = new MutualFundEventTypeForCurrencyChange.DomainEvent(
                     new DateTime(2010, 1, 2),
                     new CurrencyCode("AUD"),
                     mutualFund);

@@ -24,7 +24,7 @@ namespace TinyReturns.Core.MutualFundManagement
             {
                 var mutualFundEvenDto = new MutualFundEvenDto()
                 {
-                    EventType = fundDomainEvent.GetEventType(),
+                    EventType = fundDomainEvent.EventType,
                     EffectiveDate = fundDomainEvent.EffectiveDate,
                     TickerSymbol = fundDomainEvent.TickerSymbol,
                     JsonPayload = fundDomainEvent.GetJsonPayload(),

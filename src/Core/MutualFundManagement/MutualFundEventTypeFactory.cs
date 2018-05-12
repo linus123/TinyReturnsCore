@@ -46,7 +46,6 @@ namespace TinyReturns.Core.MutualFundManagement
             private readonly string _fundName;
             private readonly CurrencyCode _currencyCode;
 
-            public const string EventType = "Create";
             public const int PriorityConts = 100;
 
             public DomainEvent(
@@ -73,9 +72,9 @@ namespace TinyReturns.Core.MutualFundManagement
                     _currencyCode);
             }
 
-            public string GetEventType()
+            public string EventType
             {
-                return EventType;
+                get { return "Create"; }
             }
 
             public int Priority
@@ -121,7 +120,6 @@ namespace TinyReturns.Core.MutualFundManagement
             private readonly string _newNameValue;
             private readonly MutualFund _mutualFund;
 
-            public const string EventType = "NameChange";
             public const int PriorityConts = 500;
 
             public DomainEvent(
@@ -147,9 +145,9 @@ namespace TinyReturns.Core.MutualFundManagement
                 return _mutualFund;
             }
 
-            public string GetEventType()
+            public string EventType
             {
-                return EventType;
+                get { return "NameChange"; }
             }
 
             public int Priority
@@ -197,7 +195,6 @@ namespace TinyReturns.Core.MutualFundManagement
             private readonly MutualFund _mutualFund;
             private readonly CurrencyCode _currencyCode;
 
-            public const string EventType = "CurrencyChange";
             public const int PriorityConts = 500;
 
             public DomainEvent(
@@ -223,9 +220,9 @@ namespace TinyReturns.Core.MutualFundManagement
                 return _mutualFund;
             }
 
-            public string GetEventType()
+            public string EventType
             {
-                return EventType;
+                get { return "CurrencyChange"; }
             }
 
             public int Priority

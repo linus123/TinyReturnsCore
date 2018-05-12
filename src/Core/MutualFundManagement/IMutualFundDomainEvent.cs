@@ -7,7 +7,7 @@ namespace TinyReturns.Core.MutualFundManagement
         DateTime EffectiveDate { get; }
         string TickerSymbol { get; }
         MutualFund Process();
-        string GetEventType();
+        string EventType { get; }
         int Priority { get; }
         string GetJsonPayload();
     }
