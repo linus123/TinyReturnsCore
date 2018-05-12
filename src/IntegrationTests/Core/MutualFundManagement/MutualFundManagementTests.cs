@@ -1,5 +1,4 @@
 ﻿using System;
-using Newtonsoft.Json.Linq;
 using TinyReturns.Core.MutualFundManagement;
 using Xunit;
 
@@ -114,7 +113,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 {
                     TickerSymbol = tickerSymbol,
                     EventType = MutualFundNameChangeEvent.EventType,
-                    JsonPayload = "My New Fund",
+                    JsonPayload = MutualFundNameChangeEvent.CreateJsonPayload("My New Fund"),
                     EffectiveDate = new DateTime(2010, 1, 2),
                     DateCreated = new DateTime(2012, 1, 1)
                 };

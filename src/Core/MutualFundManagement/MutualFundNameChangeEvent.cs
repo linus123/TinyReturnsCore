@@ -1,9 +1,35 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFundNameChangeEvent : IMutualFundDomainEvent
     {
+        public static string CreateJsonPayload(
+            string fundName)
+        {
+            var jObject = new JObject();
+
+            jObject.Add("name", fundName);
+
+            return jObject.ToString();
+        }
+
+        public static MutualFundNameChangeEvent CreateFromJson(
+            DateTime effectiveDate,
+            string json,
+            MutualFund mutualFund)
+        {
+            var jObject = JObject.Parse(json);
+
+            var nameToken = jObject.SelectToken("name");
+
+            return new MutualFundNameChangeEvent(
+                effectiveDate,
+                nameToken.ToString(),
+                mutualFund);
+        }
+
         private readonly string _newNameValue;
         private readonly MutualFund _mutualFund;
 
