@@ -108,29 +108,22 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundEvenDto1 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundCreateEvent.EventType,
-                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
-                    Priority = MutualFundCreateEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 1),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                    new DateTime(2010, 1, 1),
+                    tickerSymbol,
+                    fundName,
+                    new CurrencyCode(currencyCode));
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto1);
+                testHelper.InsertMutualFundDomainEvent(mutualFundCreateEvent);
 
-                var mutualFundEvenDto2 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundNameChangeEvent.EventType,
-                    JsonPayload = MutualFundNameChangeEvent.CreateJsonPayload("My New Fund"),
-                    Priority = MutualFundNameChangeEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 2),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFund = mutualFundCreateEvent.Process();
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto2);
+                var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
+                    new DateTime(2010, 1, 2),
+                    "My New Fund",
+                    mutualFund);
+
+                testHelper.InsertMutualFundDomainEvent(mutualFundNameChangeEvent);
 
                 var mutualFundRepository = testHelper.CreateRepository();
 
@@ -154,29 +147,22 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundEvenDto1 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundCreateEvent.EventType,
-                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
-                    Priority = MutualFundCreateEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 1),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                    new DateTime(2010, 1, 1),
+                    tickerSymbol,
+                    fundName,
+                    new CurrencyCode(currencyCode));
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto1);
+                testHelper.InsertMutualFundDomainEvent(mutualFundCreateEvent);
 
-                var mutualFundEvenDto2 = new MutualFundEvenDto()
-                {
-                    TickerSymbol = tickerSymbol,
-                    EventType = MutualFundCurrencyChangeEvent.EventType,
-                    JsonPayload = MutualFundCurrencyChangeEvent.CreateJsonPayload("AUD"),
-                    Priority = MutualFundCurrencyChangeEvent.PriorityConts,
-                    EffectiveDate = new DateTime(2010, 1, 2),
-                    DateCreated = new DateTime(2012, 1, 1)
-                };
+                var mutualFund = mutualFundCreateEvent.Process();
 
-                testHelper.InsertMutualFundEvenDto(mutualFundEvenDto2);
+                var mutualFundCurrencyChangeEvent = new MutualFundCurrencyChangeEvent(
+                    new DateTime(2010, 1, 2),
+                    new CurrencyCode("AUD"),
+                    mutualFund);
+
+                testHelper.InsertMutualFundDomainEvent(mutualFundCurrencyChangeEvent);
 
                 var mutualFundRepository = testHelper.CreateRepository();
 

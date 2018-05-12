@@ -73,7 +73,11 @@ namespace TinyReturns.Core.MutualFundManagement
 
         public string GetJsonPayload()
         {
-            throw new NotImplementedException();
+            var jObject = new JObject();
+
+            jObject.Add("currencyCode", _currencyCode.Code);
+
+            return jObject.ToString();
         }
     }
 }

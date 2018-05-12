@@ -71,7 +71,11 @@ namespace TinyReturns.Core.MutualFundManagement
 
         public string GetJsonPayload()
         {
-            throw new NotImplementedException();
+            var jObject = new JObject();
+
+            jObject.Add("name", _newNameValue);
+
+            return jObject.ToString();
         }
     }
 }
