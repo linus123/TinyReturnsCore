@@ -70,7 +70,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "My Mutual Fund";
                 var currencyCode = "USD";
 
-                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                var mutualFundCreateEvent = new MutualFundEventTypeForCreate.DomainEvent(
                     new DateTime(2010, 1, 1),
                     tickerSymbol,
                     fundName,
@@ -102,7 +102,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                var mutualFundCreateEvent = new MutualFundEventTypeForCreate.DomainEvent(
                     new DateTime(2010, 1, 1),
                     tickerSymbol,
                     fundName,
@@ -112,7 +112,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
                 var mutualFund = mutualFundCreateEvent.Process();
 
-                var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
+                var mutualFundNameChangeEvent = new MutualFundEventTypeForNameChange.DomainEvent(
                     new DateTime(2010, 1, 2),
                     "My New Fund",
                     mutualFund);
@@ -141,7 +141,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                var mutualFundCreateEvent = new MutualFundEventTypeForCreate.DomainEvent(
                     new DateTime(2010, 1, 1),
                     tickerSymbol,
                     fundName,
@@ -151,7 +151,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
                 var mutualFund = mutualFundCreateEvent.Process();
 
-                var mutualFundCurrencyChangeEvent = new MutualFundCurrencyChangeEvent(
+                var mutualFundCurrencyChangeEvent = new MutualFundEventTypeForCurrencyChange.MutualFundCurrencyChangeEvent(
                     new DateTime(2010, 1, 2),
                     new CurrencyCode("AUD"),
                     mutualFund);
@@ -180,7 +180,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var fundName = "Original Fund Name";
                 var currencyCode = "USD";
 
-                var mutualFundCreateEvent = new MutualFundCreateEvent(
+                var mutualFundCreateEvent = new MutualFundEventTypeForCreate.DomainEvent(
                     new DateTime(2010, 1, 1),
                     tickerSymbol,
                     fundName,
@@ -188,7 +188,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
                 var mutualFund = mutualFundCreateEvent.Process();
 
-                var mutualFundNameChangeEvent = new MutualFundNameChangeEvent(
+                var mutualFundNameChangeEvent = new MutualFundEventTypeForNameChange.DomainEvent(
                     new DateTime(2010, 1, 2),
                     "My New Fund",
                     mutualFund);
