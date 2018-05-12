@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace TinyReturns.Core.MutualFundManagement
 {
@@ -27,7 +28,17 @@ namespace TinyReturns.Core.MutualFundManagement
             {
                 if (mutualFundEvenDto.EventType == MutualFundCreateEvent.EventType)
                 {
-                    mutualFund = new MutualFund(mutualFundEvenDto.TickerSymbol);
+                    var jObject = JObject.Parse(mutualFundEvenDto.JsonPayload);
+
+                    var nameToken = jObject.SelectToken("name");
+                    var currencyCodeToken = jObject.SelectToken("currencyCode");
+
+                    var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
+
+                    mutualFund = new MutualFund(
+                        mutualFundEvenDto.TickerSymbol,
+                        nameToken.ToString(),
+                        currencyCode);
                 }
 
                 if (mutualFund != null)

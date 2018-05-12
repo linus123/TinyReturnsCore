@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 using TinyReturns.Core.MutualFundManagement;
 using Xunit;
 
@@ -37,11 +38,19 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
             var tickerSymbol = "ABC";
 
+            var jObject = new JObject();
+
+            jObject.Add("name", "My Mutual Fund");
+            jObject.Add("currencyCode", "USD");
+
+            var jsonPayLoad = jObject.ToString();
+
+            // Modify the create event to make the fund name and currency code required
             var mutualFundEvenDto = new MutualFundEvenDto()
             {
                 TickerSymbol = tickerSymbol,
                 EventType = "Create",
-                JsonPayload = string.Empty,
+                JsonPayload = jsonPayLoad,
                 EffectiveDate = new DateTime(2010, 1, 1),
                 DateCreated = new DateTime(2012, 1, 1)
             };
@@ -56,6 +65,8 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             Assert.True(mutualFundResult.HasValue);
             Assert.False(mutualFundResult.DoesNotHaveValue);
             Assert.Equal(tickerSymbol, mutualFundResult.Value.TickerSymbol);
+            Assert.Equal("My Mutual Fund", mutualFundResult.Value.Name);
+            Assert.Equal("USD", mutualFundResult.Value.CurrencyCodeAsString);
 
             mutualFundEvenDataTableGateway.DeleteAll();
         }
@@ -71,11 +82,18 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
             var tickerSymbol = "ABC";
 
+            var jObject = new JObject();
+
+            jObject.Add("name", "Original Fund Name");
+            jObject.Add("currencyCode", "USD");
+
+            var jsonPayLoad = jObject.ToString();
+
             var mutualFundEvenDto1 = new MutualFundEvenDto()
             {
                 TickerSymbol = tickerSymbol,
                 EventType = "Create",
-                JsonPayload = tickerSymbol,
+                JsonPayload = jsonPayLoad,
                 EffectiveDate = new DateTime(2010, 1, 1),
                 DateCreated = new DateTime(2012, 1, 1)
             };
