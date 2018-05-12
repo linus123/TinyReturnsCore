@@ -222,5 +222,49 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             });
         }
 
+        [Fact(DisplayName = "Should support nullable inception date")]
+        public void Test0060()
+        {
+            var testHelper = new TestHelper();
+
+            testHelper.DeleteData(() =>
+            {
+                var tickerSymbol = "ABC";
+                var fundName = "Original Fund Name";
+                var currencyCode = "USD";
+
+                var mutualFundEventTypeForCreate = new MutualFundEventTypeForCreate();
+
+                var mutualFundCreateEvent = mutualFundEventTypeForCreate.CreateEvent(
+                    new DateTime(2010, 1, 1),
+                    tickerSymbol,
+                    fundName,
+                    new CurrencyCode(currencyCode));
+
+                var mutualFund = mutualFundCreateEvent.Process();
+
+                var mutualFundEventTypeForInceptionDateChange = new MutualFundEventTypeForInceptionDateChange();
+
+                var mutualFundNameChangeEvent = mutualFundEventTypeForInceptionDateChange.CreateEvent(
+                    new DateTime(2010, 1, 2),
+                    new DateTime(2000, 1, 1), 
+                    mutualFund);
+
+                // Insert name change first
+                testHelper.InsertMutualFundDomainEvent(mutualFundNameChangeEvent);
+                testHelper.InsertMutualFundDomainEvent(mutualFundCreateEvent);
+
+                var mutualFundRepository = testHelper.CreateRepository();
+
+                var mutualFundResult = mutualFundRepository.GetByTickerSymbol(tickerSymbol);
+
+                Assert.True(mutualFundResult.HasValue);
+                Assert.False(mutualFundResult.DoesNotHaveValue);
+                Assert.Equal(tickerSymbol, mutualFundResult.Value.TickerSymbol);
+                Assert.NotNull(mutualFundResult.Value);
+                Assert.Equal(new DateTime(2000, 1, 1), mutualFundResult.Value.InceptionDate);
+            });
+        }
+
     }
 }

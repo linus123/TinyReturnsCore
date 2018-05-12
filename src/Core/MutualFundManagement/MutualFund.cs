@@ -1,4 +1,6 @@
-﻿namespace TinyReturns.Core.MutualFundManagement
+﻿using System;
+
+namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFund
     {
@@ -17,6 +19,8 @@
         public string TickerSymbol { get; }
 
         public string Name { get; set; }
+
+        public DateTime? InceptionDate { get; set; }
 
         public string CurrencyCodeAsString
         {

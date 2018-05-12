@@ -6,9 +6,10 @@
         {
             return new IMutualFundEventType[]
             {
-                new MutualFundEventTypeForCreate(), 
-                new MutualFundEventTypeForNameChange(), 
-                new MutualFundEventTypeForCurrencyChange(), 
+                new MutualFundEventTypeForCreate(),
+                new MutualFundEventTypeForNameChange(),
+                new MutualFundEventTypeForCurrencyChange(),
+                new MutualFundEventTypeForInceptionDateChange(),
             };
         }
     }
