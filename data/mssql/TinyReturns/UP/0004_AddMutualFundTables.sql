@@ -14,6 +14,7 @@ CREATE TABLE [MutualFund].[Event](
 	[TickerSymbol] [varchar](16) NOT NULL,
 	[EventType] [varchar](16) NOT NULL,
 	[JsonPayload] [nvarchar](MAX) NOT NULL,
+	[Priority] [int] NOT NULL,
 	[EffectiveDate] [DateTime] NOT NULL,
 	[DateCreated] [DateTime] NOT NULL,
 ) ON [PRIMARY]

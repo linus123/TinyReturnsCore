@@ -16,8 +16,7 @@ namespace TinyReturns.Core.MutualFundManagement
             string tickerSymbol)
         {
             var eventDtos = _mutualFundEvenDataTableGateway
-                .GetForTickerSymbol(tickerSymbol)
-                .OrderBy(e => e.EffectiveDate);
+                .GetForTickerSymbol(tickerSymbol);
 
             MutualFund mutualFund = null;
 

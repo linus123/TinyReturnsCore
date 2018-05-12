@@ -34,6 +34,7 @@ namespace TinyReturns.Core.MutualFundManagement
         private readonly MutualFund _mutualFund;
 
         public const string EventType = "NameChange";
+        public const int PriorityConts = 500;
 
         public MutualFundNameChangeEvent(
             DateTime effectiveDate,
@@ -62,5 +63,11 @@ namespace TinyReturns.Core.MutualFundManagement
         {
             return EventType;
         }
+
+        public int Priority
+        {
+            get { return PriorityConts; }
+        }
+
     }
 }

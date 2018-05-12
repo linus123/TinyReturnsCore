@@ -31,12 +31,16 @@ SELECT
         ,[TickerSymbol]
         ,[EventType]
         ,[JsonPayload]
+        ,[Priority]
         ,[EffectiveDate]
         ,[DateCreated]
     FROM
         [MutualFund].[Event] AS Event
     WHERE
-        TickerSymbol = @TickerSymbol";
+        TickerSymbol = @TickerSymbol
+    ORDER BY
+        EffectiveDate,
+        Priority";
 
             MutualFundEvenDto[] result = null;
 
@@ -60,12 +64,14 @@ INSERT INTO [MutualFund].[Event]
            ([TickerSymbol]
            ,[EventType]
            ,[JsonPayload]
+           ,[Priority]
            ,[EffectiveDate]
            ,[DateCreated])
      VALUES
            (@TickerSymbol
            ,@EventType
            ,@JsonPayload
+           ,@Priority
            ,@EffectiveDate
            ,@DateCreated)
 ";

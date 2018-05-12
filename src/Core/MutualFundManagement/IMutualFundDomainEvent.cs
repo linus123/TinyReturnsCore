@@ -8,5 +8,6 @@ namespace TinyReturns.Core.MutualFundManagement
         string TickerSymbol { get; }
         MutualFund Process();
         string GetEventType();
+        int Priority { get; }
     }
 }

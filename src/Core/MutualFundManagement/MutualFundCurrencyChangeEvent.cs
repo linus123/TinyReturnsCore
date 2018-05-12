@@ -36,6 +36,7 @@ namespace TinyReturns.Core.MutualFundManagement
         private readonly CurrencyCode _currencyCode;
 
         public const string EventType = "CurrencyChange";
+        public const int PriorityConts = 500;
 
         public MutualFundCurrencyChangeEvent(
             DateTime effectiveDate,
@@ -63,6 +64,11 @@ namespace TinyReturns.Core.MutualFundManagement
         public string GetEventType()
         {
             return EventType;
+        }
+
+        public int Priority
+        {
+            get { return PriorityConts; }
         }
     }
 }

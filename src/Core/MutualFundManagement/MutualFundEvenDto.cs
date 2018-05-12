@@ -8,6 +8,7 @@ namespace TinyReturns.Core.MutualFundManagement
         public string TickerSymbol { get; set; }
         public string EventType { get; set; }
         public string JsonPayload { get; set; }
+        public int Priority { get; set; }
         public DateTime EffectiveDate { get; set; }
         public DateTime DateCreated { get; set; }
     }
