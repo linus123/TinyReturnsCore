@@ -64,17 +64,13 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             {
                 var tickerSymbol = "ABC";
                 var fundName = "My Mutual Fund";
-                var stringCurrency = "USD";
-
-                var jsonPayLoad = GetCreateJsonPayLoad(
-                    fundName,
-                    stringCurrency);
+                var currencyCode = "USD";
 
                 var mutualFundEvenDto = new MutualFundEvenDto()
                 {
                     TickerSymbol = tickerSymbol,
                     EventType = "Create",
-                    JsonPayload = jsonPayLoad,
+                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
                     EffectiveDate = new DateTime(2010, 1, 1),
                     DateCreated = new DateTime(2012, 1, 1)
                 };
@@ -103,17 +99,13 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
             {
                 var tickerSymbol = "ABC";
                 var fundName = "Original Fund Name";
-                var stringCurrency = "USD";
-
-                var jsonPayLoad = GetCreateJsonPayLoad(
-                    fundName,
-                    stringCurrency);
+                var currencyCode = "USD";
 
                 var mutualFundEvenDto1 = new MutualFundEvenDto()
                 {
                     TickerSymbol = tickerSymbol,
-                    EventType = "Create",
-                    JsonPayload = jsonPayLoad,
+                    EventType = MutualFundCreateEvent.EventType,
+                    JsonPayload = MutualFundCreateEvent.CreateJsonPayload(fundName, currencyCode),
                     EffectiveDate = new DateTime(2010, 1, 1),
                     DateCreated = new DateTime(2012, 1, 1)
                 };
@@ -121,7 +113,7 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 var mutualFundEvenDto2 = new MutualFundEvenDto()
                 {
                     TickerSymbol = tickerSymbol,
-                    EventType = "NameChange",
+                    EventType = MutualFundNameChangeEvent.EventType,
                     JsonPayload = "My New Fund",
                     EffectiveDate = new DateTime(2010, 1, 2),
                     DateCreated = new DateTime(2012, 1, 1)
@@ -140,19 +132,6 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
                 Assert.Equal("My New Fund", mutualFundResult.Value.Name);
 
             });
-        }
-
-        private static string GetCreateJsonPayLoad(
-            string fundName,
-            string stringCurrency)
-        {
-            var jObject = new JObject();
-
-            jObject.Add("name", fundName);
-            jObject.Add("currencyCode", stringCurrency);
-
-            var jsonPayLoad = jObject.ToString();
-            return jsonPayLoad;
         }
     }
 }

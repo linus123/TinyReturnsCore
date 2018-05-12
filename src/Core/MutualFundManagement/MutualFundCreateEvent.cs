@@ -5,6 +5,18 @@ namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFundCreateEvent : IMutualFundDomainEvent
     {
+        public static string CreateJsonPayload(
+            string fundName,
+            string stringCurrency)
+        {
+            var jObject = new JObject();
+
+            jObject.Add("name", fundName);
+            jObject.Add("currencyCode", stringCurrency);
+
+            return jObject.ToString();
+        }
+
         public static MutualFundCreateEvent CreateFromJson(
             DateTime effectiveDate,
             string tickerSymbol,
