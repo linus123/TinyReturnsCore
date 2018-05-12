@@ -71,7 +71,6 @@ namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
 
                 var jsonPayLoad = jObject.ToString();
 
-                // Modify the create event to make the fund name and currency code required
                 var mutualFundEvenDto = new MutualFundEvenDto()
                 {
                     TickerSymbol = tickerSymbol,

@@ -28,17 +28,9 @@ namespace TinyReturns.Core.MutualFundManagement
             {
                 if (mutualFundEvenDto.EventType == MutualFundCreateEvent.EventType)
                 {
-                    var jObject = JObject.Parse(mutualFundEvenDto.JsonPayload);
-
-                    var nameToken = jObject.SelectToken("name");
-                    var currencyCodeToken = jObject.SelectToken("currencyCode");
-
-                    var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
-
-                    mutualFund = new MutualFund(
+                    mutualFund = CreateMutualFund(
                         mutualFundEvenDto.TickerSymbol,
-                        nameToken.ToString(),
-                        currencyCode);
+                        mutualFundEvenDto.JsonPayload);
                 }
 
                 if (mutualFund != null)
@@ -59,6 +51,23 @@ namespace TinyReturns.Core.MutualFundManagement
                 return Maybe<MutualFund>.None;
 
             return Maybe<MutualFund>.Some(mutualFund);
+        }
+
+        private static MutualFund CreateMutualFund(
+            string tickerSymbol,
+            string jsonPayload)
+        {
+            var jObject = JObject.Parse(jsonPayload);
+
+            var nameToken = jObject.SelectToken("name");
+            var currencyCodeToken = jObject.SelectToken("currencyCode");
+
+            var currencyCode = new CurrencyCode(currencyCodeToken.ToString());
+
+            return new MutualFund(
+                tickerSymbol,
+                nameToken.ToString(),
+                currencyCode);
         }
     }
 }

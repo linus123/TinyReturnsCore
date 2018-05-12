@@ -4,21 +4,21 @@ namespace TinyReturns.Core.MutualFundManagement
 {
     public class MutualFundEventProcessor
     {
-        private readonly List<MutualFundDomainEvent> _domainEvents;
+        private readonly List<IMutualFundDomainEvent> _domainEvents;
 
         public MutualFundEventProcessor()
         {
-            _domainEvents = new List<MutualFundDomainEvent>();
+            _domainEvents = new List<IMutualFundDomainEvent>();
         }
 
-        public void Process(MutualFundDomainEvent mutualFundDomainEvent)
+        public void Process(IMutualFundDomainEvent mutualFundDomainEvent)
         {
             mutualFundDomainEvent.Process();
 
             _domainEvents.Add(mutualFundDomainEvent);
         }
 
-        public MutualFundDomainEvent[] GetDomainEvents()
+        public IMutualFundDomainEvent[] GetDomainEvents()
         {
             return _domainEvents.ToArray();
         }

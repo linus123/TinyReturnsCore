@@ -16,7 +16,7 @@ namespace TinyReturns.Core.MutualFundManagement
         }
 
         public void SaveEvents(
-            MutualFundDomainEvent[] mutualFundDomainEvent)
+            IMutualFundDomainEvent[] mutualFundDomainEvent)
         {
             var mutualFundEvenDtos = new List<MutualFundEvenDto>();
 

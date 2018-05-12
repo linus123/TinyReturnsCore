@@ -2,26 +2,38 @@
 
 namespace TinyReturns.Core.MutualFundManagement
 {
-    public class MutualFundCreateEvent : MutualFundDomainEvent
+    public class MutualFundCreateEvent : IMutualFundDomainEvent
     {
         private readonly string _fundName;
+        private CurrencyCode _currencyCode;
 
         public const string EventType = "Create";
 
         public MutualFundCreateEvent(
             DateTime effectiveDate,
-            MutualFund mutualFund,
-            string fundName) : base(effectiveDate, mutualFund)
+            string tickerSymbol,
+            string fundName,
+            CurrencyCode currencyCode)
         {
+            _currencyCode = currencyCode;
+            EffectiveDate = effectiveDate;
+            TickerSymbol = tickerSymbol;
             _fundName = fundName;
         }
 
-        public override void Process()
+        public DateTime EffectiveDate { get; }
+
+        public string TickerSymbol { get; }
+
+        public MutualFund Process()
         {
-            MutualFund.Name = _fundName;
+            return new MutualFund(
+                TickerSymbol,
+                _fundName,
+                _currencyCode);
         }
 
-        public override string GetEventType()
+        public string GetEventType()
         {
             return EventType;
         }
