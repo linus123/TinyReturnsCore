@@ -88,7 +88,6 @@ namespace TinyReturns.SharedKernel.FlatFiles
 
             var flatFileOptions = new FlatFileOptions();
 
-            //TODO: Is really slow.
             columnInfo.FlatFileOptions(flatFileOptions);
 
             if (flatFileOptions.GetHeading() == null)
