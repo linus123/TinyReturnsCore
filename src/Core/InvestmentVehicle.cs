@@ -51,18 +51,6 @@ namespace TinyReturns.Core
             _returnSeries.Add(a);
         }
 
-        public MonthlyReturn[] GetNetReturnsInRange(
-            MonthYearRange monthRange)
-        {
-            return GetReturnsInRange(monthRange, FeeType.NetOfFees);
-        }
-
-        public MonthlyReturn[] GetGrossReturnsInRange(
-            MonthYearRange monthRange)
-        {
-            return GetReturnsInRange(monthRange, FeeType.GrossOfFees);
-        }
-
         public MonthlyReturn[] GetReturnsInRange(
             MonthYearRange monthRange,
             FeeType feeType)
@@ -100,11 +88,6 @@ namespace TinyReturns.Core
         public MonthlyReturnSeries[] GetAllReturnSeries()
         {
             return _returnSeries.ToArray();
-        }
-
-        public int ReturnSeriesCount
-        {
-            get { return _returnSeries.Count; }
         }
 
         // ** Equality
