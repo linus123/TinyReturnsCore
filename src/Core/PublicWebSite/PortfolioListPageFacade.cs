@@ -3,11 +3,11 @@ using TinyReturns.Core.DateExtend;
 
 namespace TinyReturns.Core.PublicWebSite
 {
-    public class PortfolioListPageAdapter
+    public class PortfolioListPageFacade
     {
         private readonly IInvestmentVehicleReturnsRepository _investmentVehicleReturnsRepository;
 
-        public PortfolioListPageAdapter(
+        public PortfolioListPageFacade(
             IInvestmentVehicleReturnsRepository investmentVehicleReturnsRepository)
         {
             _investmentVehicleReturnsRepository = investmentVehicleReturnsRepository;

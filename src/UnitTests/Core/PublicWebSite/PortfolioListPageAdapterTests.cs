@@ -18,7 +18,7 @@ namespace TinyReturns.UnitTests.Core.PublicWebSite
         {
             var repositoryStub = CreateRepositoryStubWithSinglePortfolio(_monthYear);
 
-            var calculator = new PortfolioListPageAdapter(repositoryStub);
+            var calculator = new PortfolioListPageFacade(repositoryStub);
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 
@@ -32,7 +32,7 @@ namespace TinyReturns.UnitTests.Core.PublicWebSite
         {
             var repositoryStub = CreateRepositoryStubWithSinglePortfolio(_monthYear);
 
-            var calculator = new PortfolioListPageAdapter(repositoryStub);
+            var calculator = new PortfolioListPageFacade(repositoryStub);
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 
@@ -48,7 +48,7 @@ namespace TinyReturns.UnitTests.Core.PublicWebSite
         {
             var repositoryStub = CreateRepositoryStubWithSinglePortfolioMinusReturns();
 
-            var calculator = new PortfolioListPageAdapter(repositoryStub);
+            var calculator = new PortfolioListPageFacade(repositoryStub);
 
             var records = calculator.GetPortfolioPageRecords(_monthYear);
 

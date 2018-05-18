@@ -6,12 +6,12 @@ namespace TinyReturnsCore.Controllers
 {
     public class PublicWebController : Controller
     {
-        private readonly PortfolioListPageAdapter _portfolioListPageAdapter;
+        private readonly PortfolioListPageFacade _portfolioListPageFacade;
 
         public PublicWebController(
-            PortfolioListPageAdapter portfolioListPageAdapter)
+            PortfolioListPageFacade portfolioListPageFacade)
         {
-            _portfolioListPageAdapter = portfolioListPageAdapter;
+            _portfolioListPageFacade = portfolioListPageFacade;
         }
 
         public IActionResult Get(
@@ -24,7 +24,7 @@ namespace TinyReturnsCore.Controllers
 
             var monthYear = new MonthYear(year, month);
 
-            var result = _portfolioListPageAdapter.GetPortfolioPageRecords(monthYear);
+            var result = _portfolioListPageFacade.GetPortfolioPageRecords(monthYear);
 
             return new ObjectResult(result);
         }
