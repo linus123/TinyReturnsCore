@@ -92,9 +92,9 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
         private void ImportTestFile(string filePath)
         {
             var serviceLocator = new ServiceLocatorForIntegrationTests();
-            var importer = serviceLocator.GetService<CitiReturnSeriesImporter>();
+            var importer = serviceLocator.GetService<CitiFileImportInteractor>();
 
-            importer.ImportMonthlyReturnsFile(filePath);
+            importer.ImportFiles(new CitiFileImportRequestModel(new []{ filePath }));
         }
 
         private void DeleteTestData()
@@ -110,7 +110,7 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
             var currentDirectory = Directory.GetCurrentDirectory();
 
             var targetFile = currentDirectory
-                 + @"\Core\TestNetReturnsForEntity100_101_102.csv";
+                 + @"\SharedKernel\TestNetReturnsForEntity100_101_102.csv";
 
             return targetFile;
         }
