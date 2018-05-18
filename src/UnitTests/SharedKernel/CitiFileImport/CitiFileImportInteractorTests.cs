@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
-namespace TinyReturns.UnitTests.Core.CitiFileImport
+namespace TinyReturns.UnitTests.SharedKernel.CitiFileImport
 {
     //TODO: Modify these tests wo NOT use inheritcance
     public class CitiFileImportInteractorTests

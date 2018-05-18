@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TinyReturns.Core.DataGateways;
 
-namespace TinyReturns.UnitTests.Core.DataRepositories
+namespace TinyReturns.UnitTests.SharedKernel.DataRepositories
 {
     public class ReturnSeriesDtoCollectionForTests
     {

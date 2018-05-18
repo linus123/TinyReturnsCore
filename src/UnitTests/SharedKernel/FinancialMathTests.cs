@@ -1,7 +1,6 @@
-﻿using TinyReturns.Core;
-using Xunit;
+﻿using Xunit;
 
-namespace TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.SharedKernel
 {
     public class FinancialMathTests
     {

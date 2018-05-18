@@ -1,10 +1,7 @@
 ﻿using System.Linq;
-using TinyReturns.Core;
-using TinyReturns.Core.DateExtend;
-using TinyReturns.Core.PerformanceReport;
 using Xunit;
 
-namespace TinyReturns.UnitTests.Core.PerformanceReport
+namespace TinyReturns.UnitTests.SharedKernel.PerformanceReport
 {
     public class PerformanceReportExcelReportCreatorTests
     {

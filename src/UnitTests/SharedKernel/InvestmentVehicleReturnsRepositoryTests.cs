@@ -1,11 +1,8 @@
 ﻿using System;
-using TinyReturns.Core;
-using TinyReturns.Core.DataGateways;
-using TinyReturns.Core.DateExtend;
-using TinyReturns.UnitTests.Core.DataRepositories;
+using TinyReturns.UnitTests.SharedKernel.DataRepositories;
 using Xunit;
 
-namespace TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.SharedKernel
 {
     public class InvestmentVehicleReturnsRepositoryTests
     {

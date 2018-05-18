@@ -1,8 +1,6 @@
-﻿using TinyReturns.Core.DateExtend;
-using TinyReturns.Core.PublicWebSite;
-using Xunit;
+﻿using Xunit;
 
-namespace TinyReturns.UnitTests.Core.PublicWebSite
+namespace TinyReturns.UnitTests.SharedKernel.PublicWebSite
 {
     public class PortfolioListPageAdapterTests
     {

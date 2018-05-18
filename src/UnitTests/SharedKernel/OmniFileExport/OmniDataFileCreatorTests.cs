@@ -1,10 +1,7 @@
-﻿using TinyReturns.Core;
-using TinyReturns.Core.DateExtend;
-using TinyReturns.Core.OmniFileExport;
-using TinyReturns.UnitTests.Core.FlatFiles;
+﻿using TinyReturns.UnitTests.SharedKernel.FlatFiles;
 using Xunit;
 
-namespace TinyReturns.UnitTests.Core.OmniFileExport
+namespace TinyReturns.UnitTests.SharedKernel.OmniFileExport
 {
     public class OmniDataFileCreatorTests
     {

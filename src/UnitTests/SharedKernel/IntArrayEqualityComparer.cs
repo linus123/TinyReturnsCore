@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.SharedKernel
 {
     public class IntArrayEqualityComparer : IEqualityComparer<int[]>
     {

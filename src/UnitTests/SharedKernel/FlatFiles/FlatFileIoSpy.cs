@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core.FlatFiles;
 
-namespace TinyReturns.UnitTests.Core.FlatFiles
+namespace TinyReturns.UnitTests.SharedKernel.FlatFiles
 {
     public class FlatFileIoSpy : IFlatFileIo
     {

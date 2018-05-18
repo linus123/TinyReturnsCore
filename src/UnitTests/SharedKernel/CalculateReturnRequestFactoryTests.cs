@@ -1,8 +1,6 @@
-﻿using TinyReturns.Core;
-using TinyReturns.Core.DateExtend;
-using Xunit;
+﻿using Xunit;
 
-namespace TinyReturns.UnitTests.Core
+namespace TinyReturns.UnitTests.SharedKernel
 {
     public class CalculateReturnRequestFactoryTests
     {

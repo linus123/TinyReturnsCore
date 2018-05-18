@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using TinyReturns.Core;
-using TinyReturns.Core.DateExtend;
-
-namespace TinyReturns.UnitTests.Core
+﻿namespace TinyReturns.UnitTests.SharedKernel
 {
     public class InvestmentVehicleBuilderForTests
     {
