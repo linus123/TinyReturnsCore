@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 
 namespace TinyReturns.UnitTests.Core.DataRepositories
 {

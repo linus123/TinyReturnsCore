@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using TinyReturns.Core;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using TinyReturns.Core.PublicWebSite;
 using TinyReturns.Database;
 using TinyReturnsCore.Helpers;

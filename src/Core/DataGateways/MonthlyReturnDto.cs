@@ -1,6 +1,6 @@
 ﻿using TinyReturns.Core.DateExtend;
 
-namespace TinyReturns.Core.DataRepositories
+namespace TinyReturns.Core.DataGateways
 {
     public class MonthlyReturnDto : IMonthAndYear
     {

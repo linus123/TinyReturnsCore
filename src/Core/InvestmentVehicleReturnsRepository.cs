@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 
 namespace TinyReturns.Core
 {

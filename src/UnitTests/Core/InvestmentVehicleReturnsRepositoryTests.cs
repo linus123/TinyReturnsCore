@@ -1,6 +1,6 @@
 ﻿using System;
 using TinyReturns.Core;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using TinyReturns.Core.DateExtend;
 using TinyReturns.UnitTests.Core.DataRepositories;
 using Xunit;

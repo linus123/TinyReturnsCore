@@ -2,7 +2,7 @@
 using System.Linq;
 using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.CitiFileImport

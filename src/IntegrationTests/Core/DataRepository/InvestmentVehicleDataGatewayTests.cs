@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.Core.DataRepository

@@ -1,5 +1,5 @@
 using System.Linq;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using TinyReturns.Core.DateExtend;
 
 namespace TinyReturns.Core

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using TinyReturns.Core.MutualFundManagement;
 using TinyReturns.Database;
 using TinyReturns.FileIo;

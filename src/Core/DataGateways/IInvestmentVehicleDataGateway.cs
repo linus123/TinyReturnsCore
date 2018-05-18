@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.DataRepositories
+﻿namespace TinyReturns.Core.DataGateways
 {
     public interface IInvestmentVehicleDataGateway
     {

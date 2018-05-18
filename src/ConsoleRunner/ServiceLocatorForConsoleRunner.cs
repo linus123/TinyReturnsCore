@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
 using TinyReturns.Core;
 using TinyReturns.Core.CitiFileImport;
-using TinyReturns.Core.DataRepositories;
+using TinyReturns.Core.DataGateways;
 using TinyReturns.Database;
 using TinyReturns.FileIo;
 
