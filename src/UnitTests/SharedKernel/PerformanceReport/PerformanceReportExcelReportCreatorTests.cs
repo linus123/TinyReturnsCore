@@ -1,4 +1,7 @@
 ﻿using System.Linq;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DateExtend;
+using TinyReturns.SharedKernel.PerformanceReport;
 using Xunit;
 
 namespace TinyReturns.UnitTests.SharedKernel.PerformanceReport

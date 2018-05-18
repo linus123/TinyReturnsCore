@@ -1,4 +1,6 @@
-﻿using Xunit;
+﻿using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DateExtend;
+using Xunit;
 
 namespace TinyReturns.UnitTests.SharedKernel
 {

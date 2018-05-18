@@ -1,5 +1,8 @@
 ﻿using System.IO;
 using System.Linq;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.CitiFileImport;
+using TinyReturns.SharedKernel.DataGateways;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport

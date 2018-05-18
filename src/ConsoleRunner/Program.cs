@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using Microsoft.Extensions.Configuration;
-using TinyReturns.Core.CitiFileImport;
+using TinyReturns.SharedKernel.CitiFileImport;
 
 namespace TinyReturns.ConsoleRunner
 {

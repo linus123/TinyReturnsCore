@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TinyReturns.Core.DateExtend;
-using TinyReturns.Core.PublicWebSite;
+using TinyReturns.SharedKernel.DateExtend;
+using TinyReturns.SharedKernel.PublicWebSite;
 
 namespace TinyReturnsCore.Controllers
 {

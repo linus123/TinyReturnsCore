@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Text;
-using TinyReturns.Core;
+using TinyReturns.SharedKernel;
 
 namespace TinyReturns.Database
 {

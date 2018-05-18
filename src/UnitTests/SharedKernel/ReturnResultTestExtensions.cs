@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using TinyReturns.SharedKernel;
+using Xunit;
 
 namespace TinyReturns.UnitTests.SharedKernel
 {

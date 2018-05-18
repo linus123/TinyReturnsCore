@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Dapper;
-using TinyReturns.Core;
-using TinyReturns.Core.DataGateways;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DataGateways;
 
 namespace TinyReturns.Database
 {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TinyReturns.SharedKernel.CitiFileImport;
 using Xunit;
 
 namespace TinyReturns.UnitTests.SharedKernel.CitiFileImport

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TinyReturns.SharedKernel.FlatFiles;
 
 namespace TinyReturns.UnitTests.SharedKernel.FlatFiles
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using TinyReturns.SharedKernel.MutualFundManagement;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.SharedKernel.MutualFundManagement

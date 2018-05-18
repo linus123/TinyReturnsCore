@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TinyReturns.Core;
-using TinyReturns.Core.DataGateways;
-using TinyReturns.Core.PublicWebSite;
 using TinyReturns.Database;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DataGateways;
+using TinyReturns.SharedKernel.PublicWebSite;
 using TinyReturnsCore.Helpers;
 
 namespace TinyReturnsCore

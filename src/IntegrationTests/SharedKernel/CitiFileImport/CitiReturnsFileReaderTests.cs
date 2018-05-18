@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using TinyReturns.SharedKernel.CitiFileImport;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport

@@ -1,4 +1,8 @@
-﻿namespace TinyReturns.UnitTests.SharedKernel
+﻿using System.Linq;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DateExtend;
+
+namespace TinyReturns.UnitTests.SharedKernel
 {
     public class InvestmentVehicleBuilderForTests
     {

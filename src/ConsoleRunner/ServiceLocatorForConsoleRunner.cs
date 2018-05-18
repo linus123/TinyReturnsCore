@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
-using TinyReturns.Core;
-using TinyReturns.Core.CitiFileImport;
-using TinyReturns.Core.DataGateways;
 using TinyReturns.Database;
 using TinyReturns.FileIo;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.CitiFileImport;
+using TinyReturns.SharedKernel.DataGateways;
 
 namespace TinyReturns.ConsoleRunner
 {

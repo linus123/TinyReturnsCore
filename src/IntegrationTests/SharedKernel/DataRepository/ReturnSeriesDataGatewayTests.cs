@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DataGateways;
 using Xunit;
 
 namespace TinyReturns.IntegrationTests.SharedKernel.DataRepository

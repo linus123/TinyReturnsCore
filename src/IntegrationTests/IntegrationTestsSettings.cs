@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using Microsoft.Extensions.Configuration;
-using TinyReturns.Core;
+using TinyReturns.SharedKernel;
 
 namespace TinyReturns.IntegrationTests
 {

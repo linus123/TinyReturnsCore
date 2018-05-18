@@ -18,6 +18,24 @@ namespace TinyReturns.SharedKernel
         public int ReturnSeriesId { get; set; }
         public FeeType FeeType { get; set; }
 
+        public void AddReturn(
+            MonthlyReturn r)
+        {
+            _monthlyReturns.Add(r);
+        }
+
+        public void AddReturn(
+            MonthYear monthYear,
+            decimal returnValue)
+        {
+            _monthlyReturns.Add(new MonthlyReturn()
+            {
+                ReturnSeriesId = ReturnSeriesId,
+                MonthYear = monthYear,
+                ReturnValue = returnValue
+            });
+        }
+
         public void AddReturns(
             IEnumerable<MonthlyReturn> r)
         {
@@ -82,6 +100,14 @@ namespace TinyReturns.SharedKernel
             }
 
             return result;
+        }
+
+        public void RemoveReturn(MonthYear monthYear)
+        {
+            var monthlyReturn = _monthlyReturns.GetMonth(monthYear);
+
+            if (monthlyReturn != null)
+                _monthlyReturns.Remove(monthlyReturn);
         }
 
         // ** Equality

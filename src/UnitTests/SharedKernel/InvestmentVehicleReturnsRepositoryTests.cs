@@ -1,4 +1,7 @@
 ﻿using System;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.DataGateways;
+using TinyReturns.SharedKernel.DateExtend;
 using TinyReturns.UnitTests.SharedKernel.DataRepositories;
 using Xunit;
 

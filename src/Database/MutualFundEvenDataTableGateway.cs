@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Dapper;
-using TinyReturns.Core;
-using TinyReturns.Core.MutualFundManagement;
+using TinyReturns.SharedKernel;
+using TinyReturns.SharedKernel.MutualFundManagement;
 
 namespace TinyReturns.Database
 {
