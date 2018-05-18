@@ -43,7 +43,7 @@ namespace TinyReturns.UnitTests.Core.OmniFileExport
         {
             var monthYear = new MonthYear(2000, 1);
 
-            var investmentVehicle = InvestmentVehicleFactoryForTests
+            var investmentVehicle = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio 100")
                 .AddNetReturn(monthYear, 0.1m)
                 .Create();
@@ -62,7 +62,7 @@ namespace TinyReturns.UnitTests.Core.OmniFileExport
         {
             var monthYear = new MonthYear(2000, 3);
 
-            var investmentVehicle = InvestmentVehicleFactoryForTests
+            var investmentVehicle = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio 100")
                 .AddNetReturn(monthYear, 0.1m)
                 .AddNetReturn(monthYear.AddMonths(-1), 0.2m)
@@ -138,7 +138,7 @@ namespace TinyReturns.UnitTests.Core.OmniFileExport
         private InvestmentVehicle SetupFourMonthsOfData(
             MonthYear monthYear)
         {
-            var investmentVehicle = InvestmentVehicleFactoryForTests
+            var investmentVehicle = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio 100")
                 .AddNetReturn(monthYear, 0.1m)
                 .AddNetReturn(monthYear.AddMonths(-1), 0.2m)
@@ -157,14 +157,14 @@ namespace TinyReturns.UnitTests.Core.OmniFileExport
         {
             var monthYear = new MonthYear(2000, 1);
 
-            var iv100 = InvestmentVehicleFactoryForTests
+            var iv100 = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio 100")
                 .AddNetReturn(monthYear, 0.1m)
                 .Create();
 
             _investmentVehicleReturnsRepositoryStub.AddInvestmentVehicle(iv100);
 
-            var iv101 = InvestmentVehicleFactoryForTests
+            var iv101 = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(101, "Portfolio 101")
                 .AddNetReturn(monthYear, 0.1m)
                 .Create();
@@ -184,14 +184,14 @@ namespace TinyReturns.UnitTests.Core.OmniFileExport
         {
             var monthYear = new MonthYear(2000, 1);
 
-            var iv100 = InvestmentVehicleFactoryForTests
+            var iv100 = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio 100")
                 .AddNetReturn(monthYear, 0.1m)
                 .Create();
 
             _investmentVehicleReturnsRepositoryStub.AddInvestmentVehicle(iv100);
 
-            var iv101 = InvestmentVehicleFactoryForTests
+            var iv101 = InvestmentVehicleBuilderForTests
                 .SetupBenchmark(1000, "Benchmark 101")
                 .AddNetReturn(monthYear, 0.1m)
                 .Create();

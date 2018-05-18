@@ -4,47 +4,47 @@ using TinyReturns.Core.DateExtend;
 
 namespace TinyReturns.UnitTests.Core
 {
-    public class InvestmentVehicleFactoryForTests
+    public class InvestmentVehicleBuilderForTests
     {
-        public static InvestmentVehicleFactoryForTests SetupPortfolio(
+        public static InvestmentVehicleBuilderForTests SetupPortfolio(
             int number, string name)
         {
             var portfolio = InvestmentVehicle.CreatePortfolio(number, name);
 
-            return new InvestmentVehicleFactoryForTests(portfolio);
+            return new InvestmentVehicleBuilderForTests(portfolio);
         }
 
-        public static InvestmentVehicleFactoryForTests SetupBenchmark(
+        public static InvestmentVehicleBuilderForTests SetupBenchmark(
             int number, string name)
         {
             var portfolio = InvestmentVehicle.CreateBenchmark(number, name);
 
-            return new InvestmentVehicleFactoryForTests(portfolio);
+            return new InvestmentVehicleBuilderForTests(portfolio);
         }
 
         private readonly InvestmentVehicle _investmentVehicle;
 
-        public InvestmentVehicleFactoryForTests(
+        public InvestmentVehicleBuilderForTests(
             InvestmentVehicle investmentVehicle)
         {
             _investmentVehicle = investmentVehicle;
         }
 
-        public InvestmentVehicleFactoryForTests AddNetReturn(
+        public InvestmentVehicleBuilderForTests AddNetReturn(
             MonthYear monthYear,
             decimal returnValue)
         {
             return AddReturn(monthYear, returnValue, FeeType.NetOfFees);
         }
 
-        public InvestmentVehicleFactoryForTests AddGrossReturn(
+        public InvestmentVehicleBuilderForTests AddGrossReturn(
             MonthYear monthYear,
             decimal returnValue)
         {
             return AddReturn(monthYear, returnValue, FeeType.GrossOfFees);
         }
 
-        private InvestmentVehicleFactoryForTests AddReturn(
+        private InvestmentVehicleBuilderForTests AddReturn(
             MonthYear monthYear,
             decimal returnValue,
             FeeType feeType)

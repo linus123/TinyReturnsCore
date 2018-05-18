@@ -83,7 +83,7 @@ namespace TinyReturns.UnitTests.Core.PublicWebSite
         {
             var repositoryStub = new InvestmentVehicleReturnsRepositoryStub();
 
-            var portfolio = InvestmentVehicleFactoryForTests
+            var portfolio = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio100")
                 .AddNetReturn(monthYear, 0.1m)
                 .AddNetReturn(monthYear.AddMonths(-1), 0.2m)
@@ -101,7 +101,7 @@ namespace TinyReturns.UnitTests.Core.PublicWebSite
         {
             var repositoryStub = new InvestmentVehicleReturnsRepositoryStub();
 
-            var portfolio = InvestmentVehicleFactoryForTests
+            var portfolio = InvestmentVehicleBuilderForTests
                 .SetupPortfolio(100, "Portfolio100")
                 .Create();
 
