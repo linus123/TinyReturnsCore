@@ -84,14 +84,6 @@ namespace TinyReturns.SharedKernel
             return result;
         }
 
-        public void RemoveReturn(MonthYear monthYear)
-        {
-            var monthlyReturn = _monthlyReturns.GetMonth(monthYear);
-
-            if (monthlyReturn != null)
-                _monthlyReturns.Remove(monthlyReturn);
-        }
-
         // ** Equality
 
         protected bool Equals(MonthlyReturnSeries other)
