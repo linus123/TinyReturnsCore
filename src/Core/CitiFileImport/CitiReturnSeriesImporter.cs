@@ -20,13 +20,13 @@ namespace TinyReturns.SharedKernel.CitiFileImport
             _returnsSeriesDataGateway = returnsSeriesDataGateway;
         }
 
-        public virtual void DeleteAllReturns()
+        public void DeleteAllReturns()
         {
             _monthlyReturnsDataGateway.DeleteAllMonthlyReturns();
             _returnsSeriesDataGateway.DeleteAllReturnSeries();
         }
 
-        public virtual void ImportMonthlyReturnsFile(
+        public void ImportMonthlyReturnsFile(
             string filePath)
         {
             var feeType = FeeType.GetFeeTypeForFileName(filePath);
