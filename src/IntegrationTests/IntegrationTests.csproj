@@ -33,13 +33,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Core\TestIndexReturnsForEntity10000.csv">
+    <None Update="SharedKernel\TestIndexReturnsForEntity10000.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Core\TestNetReturnsForEntity100.csv">
+    <None Update="SharedKernel\TestNetReturnsForEntity100.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Core\TestNetReturnsForEntity100_101_102.csv">
+    <None Update="SharedKernel\TestNetReturnsForEntity100_101_102.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

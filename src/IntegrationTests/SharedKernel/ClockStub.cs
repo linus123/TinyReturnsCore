@@ -1,7 +1,6 @@
 ﻿using System;
-using TinyReturns.Core;
 
-namespace TinyReturns.IntegrationTests.Core
+namespace TinyReturns.IntegrationTests.SharedKernel
 {
     public class ClockStub : IClock
     {

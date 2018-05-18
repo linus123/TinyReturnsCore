@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using TinyReturns.Core.DataGateways;
-using Xunit;
+﻿using Xunit;
 
-namespace TinyReturns.IntegrationTests.Core.DataRepository
+namespace TinyReturns.IntegrationTests.SharedKernel.DataRepository
 {
     public class InvestmentVehicleDataGatewayTests
     {

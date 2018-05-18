@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core;
-using TinyReturns.Core.DataGateways;
 using Xunit;
 
-namespace TinyReturns.IntegrationTests.Core.DataRepository
+namespace TinyReturns.IntegrationTests.SharedKernel.DataRepository
 {
     public class ReturnSeriesDataGatewayTests
     {

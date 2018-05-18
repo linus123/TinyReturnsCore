@@ -1,8 +1,7 @@
 ﻿using System.IO;
-using TinyReturns.Core.CitiFileImport;
 using Xunit;
 
-namespace TinyReturns.IntegrationTests.Core.CitiFileImport
+namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
 {
     public class CitiReturnsFileReaderTests
     {

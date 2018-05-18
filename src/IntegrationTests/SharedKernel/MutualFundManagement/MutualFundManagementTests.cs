@@ -1,8 +1,7 @@
 ﻿using System;
-using TinyReturns.Core.MutualFundManagement;
 using Xunit;
 
-namespace TinyReturns.IntegrationTests.Core.MutualFundManagement
+namespace TinyReturns.IntegrationTests.SharedKernel.MutualFundManagement
 {
     public class MutualFundManagementTests
     {
