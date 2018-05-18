@@ -24,39 +24,11 @@ namespace TinyReturns.SharedKernel
             _monthlyReturns.AddRange(r);
         }
 
-        public void AddReturn(
-            MonthlyReturn r)
-        {
-            _monthlyReturns.Add(r);
-        }
-
-        public void AddReturn(
-            MonthYear monthYear,
-            decimal returnValue)
-        {
-            _monthlyReturns.Add(new MonthlyReturn()
-            {
-                ReturnSeriesId = ReturnSeriesId,
-                MonthYear = monthYear,
-                ReturnValue = returnValue
-            });
-        }
-
-        public MonthlyReturn[] GetAllMonthlyReturns()
-        {
-            return _monthlyReturns.ToArray();
-        }
-
         public MonthlyReturn[] GetReturnsInRange(
             MonthYearRange monthRange)
         {
             return _monthlyReturns
                 .GetMonthsInRange(monthRange).ToArray(); ;
-        }
-
-        public int MonthlyReturnsCount
-        {
-            get { return _monthlyReturns.Count; }
         }
 
         public ReturnResult CalculateReturn(
