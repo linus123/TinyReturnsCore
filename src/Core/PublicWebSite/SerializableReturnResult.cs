@@ -2,10 +2,6 @@
 {
     public class SerializableReturnResult
     {
-        public SerializableReturnResult()
-        {
-        }
-
         public SerializableReturnResult(
             ReturnResult returnResult)
         {
