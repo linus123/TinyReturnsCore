@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core.DateExtend;
+using TinyReturns.SharedKernel.DateExtend;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public class MonthlyReturnSeries
     {

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using TinyReturns.Core.DateExtend;
+using TinyReturns.SharedKernel.DateExtend;
 
-namespace TinyReturns.Core.PublicWebSite
+namespace TinyReturns.SharedKernel.PublicWebSite
 {
     public class PortfolioListPageFacade
     {

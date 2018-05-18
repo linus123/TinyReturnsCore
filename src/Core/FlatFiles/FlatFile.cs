@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace TinyReturns.Core.FlatFiles
+namespace TinyReturns.SharedKernel.FlatFiles
 {
     public class FlatFile<TType>
     {

@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.PerformanceReport
+﻿namespace TinyReturns.SharedKernel.PerformanceReport
 {
     public interface IPerformanceReportExcelReportView
     {

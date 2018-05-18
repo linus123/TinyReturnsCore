@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TinyReturns.Core.CitiFileImport
+namespace TinyReturns.SharedKernel.CitiFileImport
 {
     public class CitiMonthlyReturnsDataFileRecord
     {

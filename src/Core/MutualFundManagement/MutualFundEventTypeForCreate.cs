@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 
-namespace TinyReturns.Core.MutualFundManagement
+namespace TinyReturns.SharedKernel.MutualFundManagement
 {
     public class MutualFundEventTypeForCreate : IMutualFundEventType
     {

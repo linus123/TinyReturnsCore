@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.DataGateways
+﻿namespace TinyReturns.SharedKernel.DataGateways
 {
     public class InvestmentVehicleDto
     {

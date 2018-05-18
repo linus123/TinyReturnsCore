@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.OmniFileExport
+﻿namespace TinyReturns.SharedKernel.OmniFileExport
 {
     public class OmniDataFileLineModel
     {

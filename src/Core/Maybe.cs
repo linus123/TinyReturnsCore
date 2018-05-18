@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public struct Maybe<T>
     {

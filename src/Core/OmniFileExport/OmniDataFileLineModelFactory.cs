@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core.DateExtend;
+using TinyReturns.SharedKernel.DateExtend;
 
-namespace TinyReturns.Core.OmniFileExport
+namespace TinyReturns.SharedKernel.OmniFileExport
 {
     public class OmniDataFileLineModelFactory
     {

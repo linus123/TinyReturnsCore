@@ -1,8 +1,8 @@
 using System.Linq;
-using TinyReturns.Core.DataGateways;
-using TinyReturns.Core.DateExtend;
+using TinyReturns.SharedKernel.DataGateways;
+using TinyReturns.SharedKernel.DateExtend;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public class InvestmentVehicleDataMapper
     {

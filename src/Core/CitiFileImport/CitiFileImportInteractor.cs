@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.CitiFileImport
+﻿namespace TinyReturns.SharedKernel.CitiFileImport
 {
     public interface ICitiFileImportInteractor
     {

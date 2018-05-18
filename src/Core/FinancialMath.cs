@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public class FinancialMath
     {

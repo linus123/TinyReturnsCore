@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.MutualFundManagement
+﻿namespace TinyReturns.SharedKernel.MutualFundManagement
 {
     public interface IMutualFundEvenDataTableGateway
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using TinyReturns.Core.DateExtend;
-using TinyReturns.Core.FlatFiles;
+using TinyReturns.SharedKernel.DateExtend;
+using TinyReturns.SharedKernel.FlatFiles;
 
-namespace TinyReturns.Core.OmniFileExport
+namespace TinyReturns.SharedKernel.OmniFileExport
 {
     public class OmniDataFileCreator
     {

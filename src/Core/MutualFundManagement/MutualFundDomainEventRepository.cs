@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TinyReturns.Core.MutualFundManagement
+namespace TinyReturns.SharedKernel.MutualFundManagement
 {
     public class MutualFundDomainEventRepository
     {

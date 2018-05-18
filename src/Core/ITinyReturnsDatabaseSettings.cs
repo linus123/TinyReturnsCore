@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core
+﻿namespace TinyReturns.SharedKernel
 {
     public interface ITinyReturnsDatabaseSettings
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TinyReturns.Core.DateExtend
+namespace TinyReturns.SharedKernel.DateExtend
 {
     public class MonthYearRange
     {

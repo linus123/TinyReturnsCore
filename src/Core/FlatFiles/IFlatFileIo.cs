@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.FlatFiles
+﻿namespace TinyReturns.SharedKernel.FlatFiles
 {
     public interface IFlatFileIo
     {

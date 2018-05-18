@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TinyReturns.Core.MutualFundManagement
+namespace TinyReturns.SharedKernel.MutualFundManagement
 {
     public class MutualFundEvenDto
     {

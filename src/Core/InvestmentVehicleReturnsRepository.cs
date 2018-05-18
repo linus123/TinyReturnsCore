@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using TinyReturns.Core.DataGateways;
+using TinyReturns.SharedKernel.DataGateways;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public interface IInvestmentVehicleReturnsRepository
     {

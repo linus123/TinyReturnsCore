@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace TinyReturns.Core.MutualFundManagement
+namespace TinyReturns.SharedKernel.MutualFundManagement
 {
     public class MutualFundForReadRepository
     {

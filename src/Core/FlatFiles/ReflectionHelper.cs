@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace TinyReturns.Core.FlatFiles
+namespace TinyReturns.SharedKernel.FlatFiles
 {
     public static class ReflectionHelper
     {

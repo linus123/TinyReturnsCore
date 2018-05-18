@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using TinyReturns.Core.Headspring;
+using TinyReturns.SharedKernel.Headspring;
 
-namespace TinyReturns.Core
+namespace TinyReturns.SharedKernel
 {
     public class InvestmentVehicleType : Enumeration<InvestmentVehicleType>
     {

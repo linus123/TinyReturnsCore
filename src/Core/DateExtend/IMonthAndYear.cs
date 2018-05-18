@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.DateExtend
+﻿namespace TinyReturns.SharedKernel.DateExtend
 {
     public interface IMonthAndYear
     {

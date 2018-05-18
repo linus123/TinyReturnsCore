@@ -1,4 +1,4 @@
-﻿namespace TinyReturns.Core.PublicWebSite
+﻿namespace TinyReturns.SharedKernel.PublicWebSite
 {
     public class SerializableReturnResult
     {

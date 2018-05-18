@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using TinyReturns.Core.DataGateways;
+using TinyReturns.SharedKernel.DataGateways;
 
-namespace TinyReturns.Core.CitiFileImport
+namespace TinyReturns.SharedKernel.CitiFileImport
 {
     public class CitiReturnSeriesImporter
     {

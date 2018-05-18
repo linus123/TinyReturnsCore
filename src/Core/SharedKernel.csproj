@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <AssemblyName>TinyReturns.Core</AssemblyName>
-    <RootNamespace>TinyReturns.Core</RootNamespace>
+    <AssemblyName>TinyReturns.SharedKernel</AssemblyName>
+    <RootNamespace>TinyReturns.SharedKernel</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
