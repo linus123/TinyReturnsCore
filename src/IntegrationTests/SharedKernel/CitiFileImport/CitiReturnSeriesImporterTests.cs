@@ -13,8 +13,9 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
         public class TestHelper
         {
             private readonly ServiceLocatorForIntegrationTests _serviceLocator;
-            private IReturnsSeriesDataGateway _returnsSeriesDataGateway;
-            private IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
+
+            private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
+            private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
 
             public TestHelper()
             {
@@ -40,7 +41,13 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
 
                 _monthlyReturnsDataGateway.DeleteAllMonthlyReturns();
                 _returnsSeriesDataGateway.DeleteAllReturnSeries();
+            }
 
+            public MonthlyReturnDto[] GetMonthlyReturnSeries(int entityNumber)
+            {
+                var returnSeries = _returnsSeriesDataGateway.GetReturnSeries(new[] { entityNumber }).First();
+                var monthlyReturns = _monthlyReturnsDataGateway.GetMonthlyReturns(returnSeries.ReturnSeriesId);
+                return monthlyReturns;
             }
 
             public CitiFileImportInteractor CreateInteractor()
@@ -95,19 +102,6 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
                 Assert.Equal(100, series[0].InvestmentVehicleNumber);
                 Assert.Equal(series[0].FeeTypeCode, FeeType.NetOfFees.Code);
             });
-
-//            var serviceLocator = new ServiceLocatorForIntegrationTests();
-//            var importer = serviceLocator.GetService<CitiFileImportInteractor>();
-//
-//            importer.ImportFiles(new CitiFileImportRequestModel(new []{ GetNetReturnsTestFilePath() }));
-//
-//            var series = _returnsSeriesDataGateway.GetReturnSeries(
-//                new[] { 100 });
-//
-//            Assert.Equal(100, series[0].InvestmentVehicleNumber);
-//            Assert.Equal(series[0].FeeTypeCode, FeeType.NetOfFees.Code);
-//
-//            DeleteTestData();
         }
 
         [Fact]
@@ -121,21 +115,10 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
 
                 importer.ImportFiles(new CitiFileImportRequestModel(new[] { GetNetReturnsTestFilePath() }));
 
-                var monthlyReturns = GetMonthlyReturnSeries(100);
+                var monthlyReturns = testHelper.GetMonthlyReturnSeries(100);
 
                 Assert.Equal(9, monthlyReturns.Length);
             });
-
-//            var serviceLocator = new ServiceLocatorForIntegrationTests();
-//            var importer = serviceLocator.GetService<CitiFileImportInteractor>();
-//
-//            importer.ImportFiles(new CitiFileImportRequestModel(new []{ GetNetReturnsTestFilePath() }));
-//
-//            var monthlyReturns = GetMonthlyReturnSeries(100);
-//
-//            Assert.Equal(9, monthlyReturns.Length);
-//
-//            DeleteTestData();
         }
 
         [Fact]
@@ -149,7 +132,7 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
 
                 importer.ImportFiles(new CitiFileImportRequestModel(new[] { GetNetReturnsTestFilePath() }));
 
-                var monthlyReturns = GetMonthlyReturnSeries(100);
+                var monthlyReturns = testHelper.GetMonthlyReturnSeries(100);
 
                 var target = monthlyReturns.FirstOrDefault(r => r.Month == 10 && r.Year == 2013);
 
@@ -157,35 +140,6 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
                 Assert.Equal(0.0440055m, target.ReturnValue);
 
             });
-
-//            var serviceLocator = new ServiceLocatorForIntegrationTests();
-//            var importer = serviceLocator.GetService<CitiFileImportInteractor>();
-//
-//            importer.ImportFiles(new CitiFileImportRequestModel(new []{ GetNetReturnsTestFilePath() }));
-//
-//            var monthlyReturns = GetMonthlyReturnSeries(100);
-//
-//            var target = monthlyReturns.FirstOrDefault(r => r.Month == 10 && r.Year == 2013);
-//
-//            Assert.NotNull(target);
-//            Assert.Equal(0.0440055m, target.ReturnValue);
-//
-//            DeleteTestData();
-        }
-
-        private MonthlyReturnDto[] GetMonthlyReturnSeries(int entityNumber)
-        {
-            var returnSeries = _returnsSeriesDataGateway.GetReturnSeries(new[] {entityNumber}).First();
-            var monthlyReturns = _monthlyReturnsDataGateway.GetMonthlyReturns(returnSeries.ReturnSeriesId);
-            return monthlyReturns;
-        }
-
-        private void DeleteTestData()
-        {
-            var serviceLocator = new ServiceLocatorForIntegrationTests();
-            var importer = serviceLocator.GetService<CitiReturnSeriesImporter>();
-
-            importer.DeleteAllReturns();
         }
 
         private string GetNetReturnsTestFilePath()
