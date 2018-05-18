@@ -8,7 +8,7 @@ using Xunit;
 
 namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
 {
-    public class CitiReturnSeriesImporterTests
+    public class CitiFileImportInteractorTests
     {
         public class TestHelper
         {
@@ -59,7 +59,7 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
         private readonly IReturnsSeriesDataGateway _returnsSeriesDataGateway;
         private readonly IMonthlyReturnsDataGateway _monthlyReturnsDataGateway;
 
-        public CitiReturnSeriesImporterTests()
+        public CitiFileImportInteractorTests()
         {
             var serviceLocator = new ServiceLocatorForIntegrationTests();
 
