@@ -40,7 +40,7 @@ namespace TinyReturns.IntegrationTests.SharedKernel.CitiFileImport
             var currentDirectory = Directory.GetCurrentDirectory();
 
             var targetFile = currentDirectory
-                 + @"\Core\TestNetReturnsForEntity100.csv";
+                 + @"\SharedKernel\TestNetReturnsForEntity100.csv";
 
             return targetFile;
         }

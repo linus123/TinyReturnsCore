@@ -17,9 +17,19 @@
 	$nuGetExec = (Find-PackagePath $libFolder "nuget") + "\nuget.exe"
 }
 
-task default -depends GetNuGetPackages, ResetDatabase
+task default -depends RequiresDotNet, GetNuGetPackages, ResetDatabase
 
 FormatTaskName "`r`n`r`n-------- Executing {0} Task --------"
+
+task RequiresDotNet {
+	$script:dotnetExe = (get-command dotnet).Source
+
+    if ($dotnetExe -eq $null) {
+        throw "Failed to find dotnet.exe"
+    }
+
+    Write-Host "Found dotnet here: $dotnetExe"
+}
 
 task GetNuGetPackages {
 	Exec {
