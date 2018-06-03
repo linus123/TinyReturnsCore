@@ -21,7 +21,7 @@
 	$nuGetExec = (Find-PackagePath $libFolder "nuget") + "\nuget.exe"
 }
 
-task default -depends RequiresDotNet, RequiresMSBuild, Init, GetNuGetPackages, CompileAssembly, ResetDatabase
+task default -depends RequiresDotNet, Init, GetNuGetPackages, BuildUnitTests, BuildIntegrationTests, ResetDatabase, RunTests
 
 FormatTaskName "`r`n`r`n-------- Executing {0} Task --------"
 
@@ -41,19 +41,6 @@ task RequiresDotNet {
     }
 
     Write-Host "Found dotnet here: $dotnetExe"
-}
-
-Task RequiresMSBuild {
-
-    $script:msbuildExe = 
-        resolve-path "C:\Program Files (x86)\Microsoft Visual Studio\*\*\MSBuild\*\Bin\MSBuild.exe"
-
-    if ($msbuildExe -eq $null)
-    {
-        throw "Failed to find MSBuild"
-    }
-
-    Write-Host "Found MSBuild here: $msbuildExe"
 }
 
 task GetNuGetPackages {
@@ -79,10 +66,27 @@ task ResetDatabase {
 	}
 }
 
-task CompileAssembly -Depends RequiresMSBuild {
+task BuildUnitTests -Depends RequiresDotNet {
     exec { 
-        & $dotnetExe msbuild /p:Configuration=$buildConfig /p:OutDir="$buildTargetFolder\" $solutionFile
+        & $dotnetExe msbuild /p:Configuration=$buildConfig /p:OutDir="$buildTargetFolder\UnitTests\" "$srcFolder\UnitTests\UnitTests.csproj"
     }
+}
+
+task BuildIntegrationTests -Depends RequiresDotNet {
+    exec { 
+        & $dotnetExe msbuild /p:Configuration=$buildConfig /p:OutDir="$buildTargetFolder\IntegrationTests\" "$srcFolder\IntegrationTests\IntegrationTests.csproj"
+    }
+}
+
+task RunTests -Depends RequiresDotNet {
+    exec { 
+        & $dotnetExe vstest "$buildTargetFolder\UnitTests\TinyReturns.UnitTests.dll"
+    }
+
+    exec { 
+        & $dotnetExe vstest "$buildTargetFolder\IntegrationTests\TinyReturns.IntegrationTests.dll"
+    }
+
 }
 
 # --------------------------

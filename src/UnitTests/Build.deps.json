@@ -1,0 +1,43 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.0",
+    "signature": "9c1f55fb9cc838e45d9afcaca513ae157957a9d7"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.0": {
+      "Build/1.0.0": {
+        "dependencies": {
+          "psake": "4.7.0",
+          "roundhouse": "0.9.1"
+        },
+        "runtime": {
+          "Build.dll": {}
+        }
+      },
+      "psake/4.7.0": {},
+      "roundhouse/0.9.1": {}
+    }
+  },
+  "libraries": {
+    "Build/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "psake/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bMyMt9U4k9hW48Y+uY4k7u0gjLEKHXkPk4yxs6C1dvej+KRMmWAOOViL58NDDvV7MH+xWhZhx3WZEK+A0xX0RQ==",
+      "path": "psake/4.7.0",
+      "hashPath": "psake.4.7.0.nupkg.sha512"
+    },
+    "roundhouse/0.9.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5hW6WcIj8U4a0TM0yEMikE6utCwpKC7IOU7Kl3Rw94jYlUx2VYYpTe9IMK5OrRmT/D4+8d9egFDjQLIHfnUksA==",
+      "path": "roundhouse/0.9.1",
+      "hashPath": "roundhouse.0.9.1.nupkg.sha512"
+    }
+  }
+}
