@@ -3,6 +3,10 @@
 	$baseDir = resolve-path ..\..\
 
 	$buildFolder = "$baseDir\.build"
+
+	$buildConfig = "Release"
+	$buildTargetFolder = "$buildFolder\$buildConfig"
+
 	$packagesFolder = "$buildFolder\packages"
 	$srcFolder = "$baseDir\src"
 	$libFolder = "$baseDir\lib"
@@ -12,14 +16,22 @@
 
 	$databaseScriptsFolder = "$baseDir\data\mssql\TinyReturns"
 	
-	$solutionFile = "$srcFolder\TinyReturns.sln"
+	$solutionFile = "$srcFolder\TinyReturnsCore.sln"
 
 	$nuGetExec = (Find-PackagePath $libFolder "nuget") + "\nuget.exe"
 }
 
-task default -depends RequiresDotNet, RequiresMSBuild, GetNuGetPackages, ResetDatabase
+task default -depends RequiresDotNet, RequiresMSBuild, Init, GetNuGetPackages, CompileAssembly, ResetDatabase
 
 FormatTaskName "`r`n`r`n-------- Executing {0} Task --------"
+
+task Init {
+    if (Test-Path $buildFolder) {
+        rd $buildFolder -rec -force | out-null
+    }
+
+    mkdir $buildFolder | out-null
+}
 
 task RequiresDotNet {
 	$script:dotnetExe = (get-command dotnet).Source
@@ -67,16 +79,9 @@ task ResetDatabase {
 	}
 }
 
-Task CompileAssembly -Depends Requires.BuildType,
-    Requires.MSBuild, Requires.BuildDir
-{
+task CompileAssembly -Depends RequiresMSBuild {
     exec { 
-        & $msbuildExe /p:Configuration=$buildType 
-            /verbosity:minimal
-            /fileLogger
-            /flp:verbosity=detailed`;logfile=$buildDir\Niche.CommandLine.msbuild.log 
-            /p:Version=$semver20
-            .\Niche.CommandLine.sln
+        & $dotnetExe msbuild /p:Configuration=$buildConfig /p:OutDir="$buildTargetFolder\" $solutionFile
     }
 }
 
