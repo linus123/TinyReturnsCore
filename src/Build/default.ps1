@@ -17,7 +17,7 @@
 	$nuGetExec = (Find-PackagePath $libFolder "nuget") + "\nuget.exe"
 }
 
-task default -depends RequiresDotNet, GetNuGetPackages, ResetDatabase
+task default -depends RequiresDotNet, RequiresMSBuild, GetNuGetPackages, ResetDatabase
 
 FormatTaskName "`r`n`r`n-------- Executing {0} Task --------"
 
@@ -29,6 +29,19 @@ task RequiresDotNet {
     }
 
     Write-Host "Found dotnet here: $dotnetExe"
+}
+
+Task RequiresMSBuild {
+
+    $script:msbuildExe = 
+        resolve-path "C:\Program Files (x86)\Microsoft Visual Studio\*\*\MSBuild\*\Bin\MSBuild.exe"
+
+    if ($msbuildExe -eq $null)
+    {
+        throw "Failed to find MSBuild"
+    }
+
+    Write-Host "Found MSBuild here: $msbuildExe"
 }
 
 task GetNuGetPackages {
@@ -52,6 +65,19 @@ task ResetDatabase {
 	Exec {
 		&$roundhouseExec /s=$databaseServer /d=$databaseName /f=$databaseScriptsFolder /env=local /vf=$versionFile /vx=$versionPath /simple /silent
 	}
+}
+
+Task CompileAssembly -Depends Requires.BuildType,
+    Requires.MSBuild, Requires.BuildDir
+{
+    exec { 
+        & $msbuildExe /p:Configuration=$buildType 
+            /verbosity:minimal
+            /fileLogger
+            /flp:verbosity=detailed`;logfile=$buildDir\Niche.CommandLine.msbuild.log 
+            /p:Version=$semver20
+            .\Niche.CommandLine.sln
+    }
 }
 
 # --------------------------
